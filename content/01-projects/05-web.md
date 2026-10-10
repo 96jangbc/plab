@@ -29,4 +29,6 @@ title: 웹 오버레이
 | 쿠팡플레이 | ❌ 재생 불원활 |
 
 ## 스크린샷
+![웹 오버레이 확대](../assets/img/web-zoom.jpg)
+
 ![웹 오버레이 - 넷플릭스 DRM 오류](../assets/img/web-1.jpg)

@@ -21,4 +21,6 @@ title: 전비 오버레이
 - 전비 = 주행거리 ÷ 사용 전력, 정차 중엔 공조 전력만 소모되어 낮게 나옴
 
 ## 스크린샷
-![전비 오버레이](../assets/img/trip-1.jpg)
+![전비 오버레이 확대](../assets/img/trip-zoom.jpg)
+
+![전비 오버레이 전체 화면](../assets/img/trip-1.jpg)

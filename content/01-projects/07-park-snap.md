@@ -25,6 +25,8 @@ title: 주차 스냅샷
 - **텔레그램 실패 3연타**: ①봇과 대화 미시작(chat not found) ②차에서 토큰 오타(401) ③캡션 UTF-8 깨짐(400)
 
 ## 스크린샷
+![주차 스냅샷 오버레이 확대](../assets/img/parksnap-zoom.jpg)
+
 ![차량 카메라 촬영 성공(진단)](../assets/img/parksnap-cam.jpg)
 
 ![텔레그램 전송 성공](../assets/img/parksnap-tg1.jpg)

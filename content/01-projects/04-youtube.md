@@ -27,6 +27,8 @@ title: 유튜브 오버레이
 - `MATCH_PARENT` 창은 `lp.y`를 무시 → 전체화면 여백은 **창 안쪽 topMargin**으로 조절
 
 ## 스크린샷
+![유튜브 오버레이 확대](../assets/img/youtube-zoom.jpg)
+
 ![유튜브 오버레이 - 재생](../assets/img/youtube-1.jpg)
 
 ![유튜브 오버레이 - 내비 위](../assets/img/youtube-2.jpg)

@@ -93,13 +93,13 @@ def build_tree(dirpath, rel=''):
             items.append(('file', link, title_of(meta, full)))
     return items
 
-def render_nav(tree):
+def render_nav(tree, prefix=""):
     out = ['<ul class="tree">']
     for kind, a, b in tree:
         if kind == 'dir':
-            out.append('<li class="dir"><span>%s</span>%s</li>' % (esc(re.sub(r'^\d+[-_]','',a)), render_nav(b)))
+            out.append('<li class="dir"><span>%s</span>%s</li>' % (esc(re.sub(r'^\d+[-_]','',a)), render_nav(b, prefix)))
         else:
-            out.append('<li class="file"><a href="%s">%s</a></li>' % (esc(a), esc(b)))
+            out.append('<li class="file"><a href="%s">%s</a></li>' % (esc(prefix + a), esc(b)))
     out.append('</ul>')
     return '\n'.join(out)
 
@@ -120,12 +120,13 @@ def main():
             depth = rel.count(os.sep)
             up = '../' * depth
             t = title_of(meta, src)
+            navp = render_nav(tree, up)
             doc = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(t)} · Polestar4 오버레이 랩</title>
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
 <header class="top"><a class="brand" href="{up}index.html">🚗 Polestar4 오버레이 랩</a></header>
-<div class="wrap"><aside class="side">{nav}</aside>
+<div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}</main></div>
 <footer class="foot">© {year} Polestar4 오버레이 랩 · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>'''

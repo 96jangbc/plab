@@ -25,4 +25,6 @@ title: 기어 오버레이
 - 오버레이 창이 차 상단 상태바에 가리지 않도록 y를 강제
 
 ## 스크린샷
-![기어 오버레이 - R N D P H 표시](../assets/img/gear-1.jpg)
+![기어 오버레이 확대 - R N D P H](../assets/img/gear-zoom.jpg)
+
+![기어 오버레이 전체 화면](../assets/img/gear-wide.jpg)

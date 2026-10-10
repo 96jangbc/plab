@@ -37,7 +37,7 @@ title: jangbc's AI life
 
 **🧭 기어 오버레이** — R·N·D·P(+오토홀드 H)를 화면에 크게. 변속하면 알람.
 
-![기어 오버레이](assets/img/gear-1.jpg)
+![기어 오버레이](assets/img/gear-zoom.jpg)
 
 **📺 유튜브 오버레이** — 유튜브를 작은 창으로 띄워 내비와 함께. 전체화면 토글까지.
 

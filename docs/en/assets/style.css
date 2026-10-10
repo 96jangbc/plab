@@ -32,3 +32,9 @@ li.file>a{font-size:14px}
 /* language toggle */
 .lang{margin-left:12px;font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mut)}
 .lang:hover{color:#111;border-color:var(--acc)}
+
+/* header right: language toggle + visitor counter */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hright{margin-left:auto;display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.visits{display:inline-flex;align-items:center}
+.visits img{height:18px;display:block;border-radius:4px}

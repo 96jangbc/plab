@@ -147,6 +147,9 @@ def main():
 <footer class="foot">© {year} 장병철 · Polestar 오버레이 랩 · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>'''
         open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(doc)
+    src_assets = os.path.join(ROOT, "assets")
+    if os.path.isdir(src_assets):
+        shutil.copytree(src_assets, os.path.join(OUT, "assets"))
     open(os.path.join(OUT, '.nojekyll'), 'w').write('')
     print('built', len(pages) + 1, 'pages')
 

@@ -44,17 +44,30 @@
 <li class="file"><a href="../index.html">시작하며</a></li>
 </ul></aside>
 <main class="content"><h1>📺 유튜브 오버레이</h1>
+<p>차 화면 위에 <strong>떠 있는 유튜브 창</strong>을 띄웁니다. 주행/대기 중 영상을 볼 수 있습니다.</p>
+<h2>이 앱은?</h2>
+<p>차 기본 유튜브 앱은 화면을 다 차지해 내비게이션과 함께 보기 어렵습니다. 이 앱은 유튜브를 <strong>작은 창으로 띄워</strong> 내비 위에 겹쳐 볼 수 있게 해줍니다.</p>
+<h2>주요 기능</h2>
 <ul>
-<li><strong>패키지</strong>: <code>com.jangbc.ytsoverlay</code> · <strong>최종 버전</strong>: v0.3.6</li>
+<li>유튜브 링크/영상ID 입력 → <strong>embed 재생</strong>, m.youtube.com 홈 브라우징</li>
+<li><strong>이동</strong>(헤더 드래그) · <strong>크기조절</strong>(핀치/◢) · <strong>전체화면 토글</strong>(이전 크기로 정확 복귀)</li>
+<li>창 위치 ▼▲ / 전체화면 여백 ↓↑ 버튼</li>
 </ul>
-<h2>기능</h2>
-<ul>
-<li>유튜브 링크/ID → embed 재생 · m.youtube.com 홈</li>
-<li>이동/크기조절/전체화면 토글(이전 크기 복귀)</li>
-</ul>
+<h2>사용법</h2>
+<ol>
+<li>앱 실행 → 오버레이 켜기</li>
+<li>주소창에 유튜브 주소/ID 입력 → 재생</li>
+<li>⛶ 로 전체화면, 다시 ⛶ 로 원래 크기</li>
+</ol>
 <h2>한계</h2>
 <ul>
-<li>네이티브 앱 임베드 불가(웹버전만) · 구글 로그인/DRM 차단</li>
+<li><strong>차 기본 앱(네이티브) UI는 오버레이에 못 넣습니다</strong> → 유튜브 <strong>웹버전</strong>으로 구현</li>
+<li>구글 로그인 · DRM 영상은 차단, 일부 영상은 임베드 제한</li>
+</ul>
+<h2>기술 포인트</h2>
+<ul>
+<li>오버레이 WebView: JS + DOM 저장소 + 자동재생</li>
+<li><code>MATCH_PARENT</code> 창은 <code>lp.y</code>를 무시 → 전체화면 여백은 <strong>창 안쪽 topMargin</strong>으로 조절</li>
 </ul>
 <h2>스크린샷</h2>
 <p><img alt="유튜브 오버레이 - 재생" src="../assets/img/youtube-1.jpg"></p>

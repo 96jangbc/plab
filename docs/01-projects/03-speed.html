@@ -44,13 +44,24 @@
 <li class="file"><a href="../index.html">시작하며</a></li>
 </ul></aside>
 <main class="content"><h1>🚦 과속 경고</h1>
+<p>현재 속도를 크게 보여주고, 정한 제한을 넘으면 <strong>색과 소리로 경고</strong>하는 오버레이입니다.</p>
+<h2>이 앱은?</h2>
+<p>계기판 속도를 계속 보기 어려울 때, 화면에 큰 숫자로 띄우고 <strong>제한 속도를 넘으면 빨갛게 + 삐</strong> 소리로 알려줍니다. (단속카메라 위치가 아니라 "내 속도" 기준)</p>
+<h2>주요 기능</h2>
 <ul>
-<li><strong>패키지</strong>: <code>com.jangbc.speedoverlay</code> · <strong>최종 버전</strong>: v0.1.0</li>
+<li>현재 속도(km/h) 크게 표시</li>
+<li>제한 초과 시 <strong>화면 빨강 + 비프음</strong>(3초마다)</li>
+<li>제한 설정: 30/50/60/80/100 · ±5 (실제 경고는 허용오차 +3 km/h부터)</li>
 </ul>
-<h2>기능</h2>
+<h2>사용법</h2>
+<ol>
+<li>앱 실행 → 원하는 제한 선택 → 오버레이 켜기</li>
+<li>주행 중 제한을 넘으면 자동 경고</li>
+</ol>
+<h2>기술 포인트</h2>
 <ul>
-<li>현재 속도 크게 표시, 제한 초과 시 빨강 + 비프(3초마다)</li>
-<li>제한 30/50/60/80/100 · ±5 (허용오차 +3)</li>
+<li>속도: <code>PERF_VEHICLE_SPEED</code>(m/s) / <code>PERF_VEHICLE_SPEED_DISPLAY</code>(km/h) 중 큰 값 사용</li>
+<li>※ 카메라 앞에서만 경고하는 방식이 아니라, 제한만 넘으면 알려줌</li>
 </ul></main></div>
 <footer class="foot">© 2026 jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>

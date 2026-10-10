@@ -44,21 +44,29 @@
 <li class="file"><a href="../index.html">시작하며</a></li>
 </ul></aside>
 <main class="content"><h1>🧭 기어 오버레이</h1>
+<p>화면 구석에 <strong>현재 기어(R/N/D/P)</strong> 를 크게 띄워 주는 작은 오버레이 앱입니다.</p>
+<h2>이 앱은?</h2>
+<p>폴스타4의 계기판은 기어가 눈에 잘 안 들어옵니다. 이 앱은 화면 위에 항상 떠 있는 작은 창으로 <strong>지금 기어가 무엇인지</strong>와 <strong>오토홀드(H) 상태</strong>를 보여줍니다. 변속할 때 알림음도 울려 줍니다.</p>
+<h2>주요 기능</h2>
 <ul>
-<li><strong>패키지</strong>: <code>com.jangbc.gearoverlay</code> · <strong>최종 버전</strong>: v0.7.1</li>
-<li><strong>표시</strong>: R N D P + <strong>H</strong>(오토홀드)</li>
+<li><strong>기어 표시</strong>: R · N · D · P (+ <strong>H</strong> = 오토홀드)</li>
+<li><strong>변속 알람</strong>: 기어를 바꾸면 알림음 (내가 고른 음원)</li>
+<li><strong>오토홀드(H)</strong>: 브레이크를 놓아도 차가 잡혀 있는 상태를 H로 표시(형광노랑)</li>
+<li>창 이동(드래그) · 핀치 크기조절 · 크기 저장</li>
 </ul>
-<h2>기능</h2>
-<ul>
-<li>기어 표시 + 변속 알람(내 음원), 폴링 250ms</li>
-<li>오토홀드(H): 바퀴 정지(WHEEL_TICK)+D/R 기어로 감지 → H 형광노랑(#CCFF00)</li>
-</ul>
+<h2>사용법</h2>
+<ol>
+<li>앱 실행 → 권한(오버레이) 허용 확인 → <strong>오버레이 켜기</strong></li>
+<li>헤더를 끌어 원하는 위치로 이동</li>
+<li>두 손가락으로 벌려/오므려 크기 조절</li>
+</ol>
 <h2>기술 포인트</h2>
 <ul>
-<li><code>GEAR_SELECTION</code> 리플렉션 (raw 1=N 2=R 4=P 8=D)</li>
-<li>오토홀드 표준 속성 없음 → 바퀴 회전으로 합성</li>
+<li>차량 데이터는 리플렉션 Car API로 <code>GEAR_SELECTION</code> 조회 (raw 1=N 2=R 4=P 8=D)</li>
+<li>표준 API에 오토홀드 속성이 없어, <strong>바퀴 회전 정지 + D/R</strong>로 H를 합성</li>
+<li>오버레이 창이 차 상단 상태바에 가리지 않도록 y를 강제</li>
 </ul>
 <h2>스크린샷</h2>
-<p><img alt="기어 오버레이 R N D P H" src="../assets/img/gear-1.jpg"></p></main></div>
+<p><img alt="기어 오버레이 - R N D P H 표시" src="../assets/img/gear-1.jpg"></p></main></div>
 <footer class="foot">© 2026 jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>

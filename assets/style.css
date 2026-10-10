@@ -28,3 +28,7 @@ li.file>a{font-size:14px}
 /* comments (giscus) */
 .comments{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(128,128,128,.35)}
 .comments h3{margin:0 0 1rem 0;font-size:1.05rem}
+
+/* language toggle */
+.lang{margin-left:12px;font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mut)}
+.lang:hover{color:#fff;border-color:var(--acc)}

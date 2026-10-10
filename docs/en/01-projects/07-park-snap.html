@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Park Snapshot · jangbc's AI life</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="top"><a class="brand" href="../index.html">🧞 jangbc's AI life</a><a class="lang" href="../../01-projects/07-park-snap.html">🇰🇷 한국어</a></header>
+<div class="wrap"><aside class="side"><ul class="tree">
+<li class="dir"><a href="../01-projects/index.html">projects</a><ul class="tree">
+<li class="file"><a href="../01-projects/01-gear.html">Gear Overlay</a></li>
+<li class="file"><a href="../01-projects/02-trip.html">Efficiency Overlay</a></li>
+<li class="file"><a href="../01-projects/03-speed.html">Speeding Alert</a></li>
+<li class="file"><a href="../01-projects/04-youtube.html">YouTube Overlay</a></li>
+<li class="file"><a href="../01-projects/05-web.html">Web Overlay</a></li>
+<li class="file"><a href="../01-projects/06-shortcut.html">Shortcut Dock</a></li>
+<li class="file"><a href="../01-projects/07-park-snap.html">Park Snapshot</a></li>
+<li class="file"><a href="../01-projects/index.html">App List</a></li>
+<li class="file"><a href="../01-projects/work-timeline.html">Work Timeline</a></li>
+</ul></li>
+<li class="dir"><a href="../02-briefings/index.html">briefings</a><ul class="tree">
+<li class="file"><a href="../02-briefings/index.html">Daily Briefings</a></li>
+</ul></li>
+<li class="dir"><span>notes</span><ul class="tree">
+<li class="file"><a href="../03-notes/aaos-overlay-tips.html">AAOS Overlay App Development Notes</a></li>
+</ul></li>
+<li class="file"><a href="../index.html">jangbc's AI life</a></li>
+</ul></aside>
+<main class="content"><h1>📷 Park Snapshot</h1>
+<p><strong>Shift into P and it automatically takes a photo and sends it to Telegram.</strong> Plus your parking location (map).</p>
+<h2>What is this app?</h2>
+<p>After parking, you sometimes forget "where did I leave it?" This app <strong>takes a photo of what's in front of the car when you park (P)</strong>, and automatically sends <strong>the photo + location (map)</strong> to your Telegram. You can receive it right after you get out.</p>
+<h2>Key features</h2>
+<ul>
+<li><strong>Detects entry into P gear</strong> → camera capture → <strong>Telegram send</strong></li>
+<li><strong>Location</strong>: Google Maps link + Telegram location pin</li>
+<li>Shows gear, GPS, and send status on the overlay (resizable · movable)</li>
+<li>Includes a manual test button</li>
+</ul>
+<h2>How to use</h2>
+<ol>
+<li>In Telegram, <strong>/start</strong> a bot (created with @BotFather)</li>
+<li>Enter the bot token and chat ID in the app (built-in defaults included) → save</li>
+<li>"Turn on the overlay" → <strong>shift into P and it auto-captures and sends</strong></li>
+</ol>
+<h2>What I learned (trial and error)</h2>
+<ul>
+<li><strong>Vehicle camera</strong>: The EVS (surround view) API is system-only, but it's <strong>accessible via the Camera2 API</strong> (successfully captured on the real car)</li>
+<li><strong>Door signal blocked</strong>: <code>DOOR_POS</code> requires Signature|Privileged permission → not available to third parties → switched the trigger to <strong>entering P</strong></li>
+<li><strong>Three Telegram failures in a row</strong>: ① conversation with the bot never started (chat not found) ② token typo in the car (401) ③ caption UTF-8 mangling (400)</li>
+</ul>
+<h2>Screenshots</h2>
+<p><img alt="Park Snapshot overlay zoomed" src="../assets/img/parksnap-zoom.jpg"></p>
+<p><img alt="Vehicle camera capture success (diagnostics)" src="../assets/img/parksnap-cam.jpg"></p>
+<p><img alt="Telegram send success" src="../assets/img/parksnap-tg1.jpg"></p>
+<p><img alt="Parking location (map) sent too" src="../assets/img/parksnap-tg2.jpg"></p><section class="comments"><h3>💬 댓글</h3>
+<script src="https://giscus.app/client.js"
+  data-repo="96jangbc/polestar-overlay-lab"
+  data-repo-id="R_kgDOVDlG9A"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOVDlG9M4DHfgF"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async></script>
+<noscript>댓글을 보려면 JavaScript를 켜 주세요.</noscript></section></main></div>
+<footer class="foot">© 2026 jangbc's AI life · Made with 지니(Genie)</footer>
+</body></html>

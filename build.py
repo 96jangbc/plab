@@ -83,6 +83,8 @@ def title_of(meta, path):
 def build_tree(dirpath, rel=''):
     items = []
     for name in sorted(os.listdir(dirpath)):
+        if name == 'en' and dirpath == CONTENT:
+            continue
         full = os.path.join(dirpath, name)
         if os.path.isdir(full):
             sub = build_tree(full, (rel + '/' + name) if rel else name)
@@ -114,10 +116,8 @@ def render_nav(tree, prefix=""):
 def main():
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
-    tree = build_tree(CONTENT)
-    nav = render_nav(tree)
     year = datetime.date.today().year
-    comment_block = '''<section class="comments"><h3>💬 댓글</h3>
+    comment_block = '''<section class="comments"><h3>\U0001F4AC 댓글</h3>
 <script src="https://giscus.app/client.js"
   data-repo="96jangbc/polestar-overlay-lab"
   data-repo-id="R_kgDOVDlG9A"
@@ -129,55 +129,61 @@ def main():
   data-emit-metadata="0"
   data-input-position="bottom"
   data-theme="preferred_color_scheme"
-  data-lang="ko"
+  data-lang="{data_lang}"
   data-loading="lazy"
   crossorigin="anonymous"
   async></script>
 <noscript>댓글을 보려면 JavaScript를 켜 주세요.</noscript></section>'''
-    pages = []
-    for dp, _, fs in os.walk(CONTENT):
-        for f in fs:
-            if not f.endswith('.md'): continue
-            src = os.path.join(dp, f)
-            rel = os.path.relpath(src, CONTENT)
-            relhtml = rel[:-3] + '.html'
-            meta, body = parse(src)
-            depth = rel.count(os.sep)
-            up = '../' * depth
-            t = title_of(meta, src)
-            navp = render_nav(tree, up)
-            doc = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
+    KO, EN = CONTENT, os.path.join(CONTENT, 'en')
+
+    def run(root, out_dir, lang):
+        tree = build_tree(root)
+        pages = 0
+        for dp, _, fs in os.walk(root):
+            for f in fs:
+                if not f.endswith('.md'):
+                    continue
+                src = os.path.join(dp, f)
+                rel = os.path.relpath(src, root)
+                relhtml = rel[:-3] + '.html'
+                meta, body = parse(src)
+                depth = rel.count(os.sep)
+                up = '../' * depth
+                t = title_of(meta, src)
+                navp = render_nav(tree, up)
+                is_index = (rel == 'index.md')
+                if lang == 'ko':
+                    toggle = ('<a class="lang" href="%sen/%s">\U0001F1FA\U0001F1F8 English</a>' % (up, relhtml)) if os.path.exists(os.path.join(EN, rel)) else ''
+                    foot = "© %d jangbc's AI life · 지니(Genie)와 함께 만든 기록" % year
+                else:
+                    toggle = '<a class="lang" href="%s../%s">\U0001F1F0\U0001F1F7 한국어</a>' % (up, relhtml)
+                    foot = "© %d jangbc's AI life · Made with 지니(Genie)" % year
+                cblock = '' if is_index else comment_block.replace('{data_lang}', lang)
+                ttl = t if is_index else t + " · jangbc's AI life"
+                doc = f'''<!doctype html><html lang="{'ko' if lang == 'ko' else 'en'}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(t)} · jangbc's AI life</title>
+<title>{esc(ttl)}</title>
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
-<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a></header>
+<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a>{toggle}</header>
 <div class="wrap"><aside class="side">{navp}</aside>
-<main class="content">{md_to_html(body)}{comment_block}</main></div>
-<footer class="foot">© {year} jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
+<main class="content">{md_to_html(body)}{cblock}</main></div>
+<footer class="foot">{foot}</footer>
 </body></html>'''
-            dst = os.path.join(OUT, relhtml)
-            os.makedirs(os.path.dirname(dst), exist_ok=True)
-            open(dst, 'w', encoding='utf-8').write(doc)
-            pages.append(relhtml)
-    # index.html from content/index.md if present, else list
-    idx_src = os.path.join(CONTENT, 'index.md')
-    if os.path.exists(idx_src):
-        meta, body = parse(idx_src)
-        doc = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>jangbc's AI life</title>
-<link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="top"><a class="brand" href="index.html">🧞 jangbc's AI life</a></header>
-<div class="wrap"><aside class="side">{nav}</aside>
-<main class="content">{md_to_html(body)}</main></div>
-<footer class="foot">© {year} jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
-</body></html>'''
-        open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(doc)
+                dst = os.path.join(out_dir, relhtml)
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                open(dst, 'w', encoding='utf-8').write(doc)
+                pages += 1
+        return pages
+
+    pages = run(KO, OUT, 'ko')
+    epages = run(EN, os.path.join(OUT, 'en'), 'en') if os.path.isdir(EN) else 0
     src_assets = os.path.join(ROOT, "assets")
     if os.path.isdir(src_assets):
         shutil.copytree(src_assets, os.path.join(OUT, "assets"))
+        if os.path.isdir(EN):
+            shutil.copytree(src_assets, os.path.join(OUT, "en", "assets"))
     open(os.path.join(OUT, '.nojekyll'), 'w').write('')
-    print('built', len(pages) + 1, 'pages')
+    print('built', pages + epages, 'pages (ko %d / en %d)' % (pages, epages))
 
 if __name__ == '__main__':
     main()

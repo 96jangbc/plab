@@ -86,7 +86,9 @@ def build_tree(dirpath, rel=''):
         full = os.path.join(dirpath, name)
         if os.path.isdir(full):
             sub = build_tree(full, (rel + '/' + name) if rel else name)
-            items.append(('dir', name, sub))
+            idx = os.path.join(full, 'index.md')
+            dlink = ((rel + '/' + name) if rel else name) + '/index.html' if os.path.exists(idx) else None
+            items.append(('dir', name, sub, dlink))
         elif name.endswith('.md'):
             meta, _ = parse(full)
             link = (rel + '/' if rel else '') + name[:-3] + '.html'
@@ -97,7 +99,17 @@ def render_nav(tree, prefix=""):
     out = ['<ul class="tree">']
     for kind, a, b in tree:
         if kind == 'dir':
-            out.append('<li class="dir"><span>%s</span>%s</li>' % (esc(re.sub(r'^\d+[-_]','',a)), render_nav(b, prefix)))
+            dlink = b if False else None
+            pass
+    for item in tree:
+        kind, a, b = item[0], item[1], item[2]
+        dlink = item[3] if len(item) > 3 else None
+        if kind == 'dir':
+            label = esc(re.sub(r'^\d+[-_]','',a))
+            if dlink:
+                out.append('<li class="dir"><a href="%s">%s</a>%s</li>' % (esc(prefix + dlink), label, render_nav(b, prefix)))
+            else:
+                out.append('<li class="dir"><span>%s</span>%s</li>' % (label, render_nav(b, prefix)))
         else:
             out.append('<li class="file"><a href="%s">%s</a></li>' % (esc(prefix + a), esc(b)))
     out.append('</ul>')

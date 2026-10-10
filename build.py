@@ -164,7 +164,7 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(ttl)}</title>
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
-<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=%EB%B0%A9%EB%AC%B8&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}</footer>

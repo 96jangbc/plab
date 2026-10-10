@@ -3,7 +3,7 @@ title: App List
 ---
 # 01 Projects · Apps at a glance
 
-The **7 sideloaded overlay apps** built together with 지니(Genie) on the Polestar 4, organized app by app.
+The **7 sideloaded overlay apps** built together with Claw on the Polestar 4, organized app by app.
 
 | App | Package | Version | One-liner |
 |---|---|---|---|

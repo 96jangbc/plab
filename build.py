@@ -154,17 +154,17 @@ def main():
                 is_index = (rel == 'index.md')
                 if lang == 'ko':
                     toggle = ('<a class="lang" href="%sen/%s">\U0001F1FA\U0001F1F8 English</a>' % (up, relhtml)) if os.path.exists(os.path.join(EN, rel)) else ''
-                    foot = "© %d jangbc's AI life · 지니(Genie)와 함께 만든 기록" % year
+                    foot = "© %d jangbc's AI life · Claw와 함께 만든 기록" % year
                 else:
                     toggle = '<a class="lang" href="%s../%s">\U0001F1F0\U0001F1F7 한국어</a>' % (up, relhtml)
-                    foot = "© %d jangbc's AI life · Made with 지니(Genie)" % year
+                    foot = "© %d jangbc's AI life · Made with Claw" % year
                 cblock = '' if is_index else comment_block.replace('{data_lang}', lang)
                 ttl = t if is_index else t + " · jangbc's AI life"
                 doc = f'''<!doctype html><html lang="{'ko' if lang == 'ko' else 'en'}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(ttl)}</title>
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
-<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<header class="top"><a class="brand" href="{up}index.html">🦞 jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}</footer>

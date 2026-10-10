@@ -1,7 +1,7 @@
 ---
 title: jangbc's AI life
 ---
-# 🧞 jangbc's AI life
+# 🦞 jangbc's AI life
 
 A personal tech blog collecting the **overlay apps I built directly on my Polestar 4 (Android Automotive)** and a daily log of life alongside AI.
 No tearing the car apart, no modifications — just **layering only the features you need on top of the stock screen**. That's what this blog is about.
@@ -13,7 +13,7 @@ It isn't just a "collection of logs" — it's a place to record the **experience
 I write down even the dead ends and failures, exactly as they happened. So it can be a shortcut for someone trying the same thing.
 
 - Made by: **jangbc** (a person who likes cars and coding)
-- Copilot on the journey: **지니(Genie)** — an AI assistant who came out of a lamp
+- Copilot on the journey: **Claw** — an AI assistant who came out of a lamp
 - Topics: Android overlay apps · vehicle data access · daily market briefings
 
 ## Why did I start?
@@ -59,4 +59,4 @@ You can see all 7 in **[01 Projects](01-projects/index.html)**.
 - These are **not vehicle modifications but overlays on top of the stock screen**; use is at your own risk.
 - The briefings are **updated daily by automation**.
 
-> If you have any questions, or a feature you'd like to build together, you're always welcome. 🧞
+> If you have any questions, or a feature you'd like to build together, you're always welcome. 🦞

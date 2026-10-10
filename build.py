@@ -117,6 +117,23 @@ def main():
     tree = build_tree(CONTENT)
     nav = render_nav(tree)
     year = datetime.date.today().year
+    comment_block = '''<section class="comments"><h3>💬 댓글</h3>
+<script src="https://giscus.app/client.js"
+  data-repo="96jangbc/polestar-overlay-lab"
+  data-repo-id="R_kgDOVDlG9A"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOVDlG9M4DHfgF"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="ko"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async></script>
+<noscript>댓글을 보려면 JavaScript를 켜 주세요.</noscript></section>'''
     pages = []
     for dp, _, fs in os.walk(CONTENT):
         for f in fs:
@@ -135,7 +152,7 @@ def main():
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
 <header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a></header>
 <div class="wrap"><aside class="side">{navp}</aside>
-<main class="content">{md_to_html(body)}</main></div>
+<main class="content">{md_to_html(body)}{comment_block}</main></div>
 <footer class="foot">© {year} jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>'''
             dst = os.path.join(OUT, relhtml)

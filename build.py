@@ -131,12 +131,12 @@ def main():
             navp = render_nav(tree, up)
             doc = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(t)} · Polestar4 오버레이 랩</title>
+<title>{esc(t)} · jangbc's AI life</title>
 <link rel="stylesheet" href="{up}assets/style.css"></head><body>
-<header class="top"><a class="brand" href="{up}index.html">🚗 Polestar4 오버레이 랩</a></header>
+<header class="top"><a class="brand" href="{up}index.html">🧞 jangbc's AI life</a></header>
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}</main></div>
-<footer class="foot">© {year} Polestar4 오버레이 랩 · 지니(Genie)와 함께 만든 기록</footer>
+<footer class="foot">© {year} jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>'''
             dst = os.path.join(OUT, relhtml)
             os.makedirs(os.path.dirname(dst), exist_ok=True)
@@ -148,12 +148,12 @@ def main():
         meta, body = parse(idx_src)
         doc = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polestar4 오버레이 랩</title>
+<title>jangbc's AI life</title>
 <link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="top"><a class="brand" href="index.html">🚗 Polestar4 오버레이 랩</a></header>
+<header class="top"><a class="brand" href="index.html">🧞 jangbc's AI life</a></header>
 <div class="wrap"><aside class="side">{nav}</aside>
 <main class="content">{md_to_html(body)}</main></div>
-<footer class="foot">© {year} Polestar4 오버레이 랩 · 지니(Genie)와 함께 만든 기록</footer>
+<footer class="foot">© {year} jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>'''
         open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(doc)
     src_assets = os.path.join(ROOT, "assets")

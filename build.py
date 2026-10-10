@@ -97,10 +97,6 @@ def build_tree(dirpath, rel=''):
 
 def render_nav(tree, prefix=""):
     out = ['<ul class="tree">']
-    for kind, a, b in tree:
-        if kind == 'dir':
-            dlink = b if False else None
-            pass
     for item in tree:
         kind, a, b = item[0], item[1], item[2]
         dlink = item[3] if len(item) > 3 else None

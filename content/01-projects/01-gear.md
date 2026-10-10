@@ -10,3 +10,7 @@ title: 기어 오버레이
 ## 기술 포인트
 - `GEAR_SELECTION` 리플렉션 (raw 1=N 2=R 4=P 8=D)
 - 오토홀드 표준 속성 없음 → 바퀴 회전으로 합성
+
+## 스크린샷
+
+![기어 오버레이 R N D P H](../assets/img/gear-1.jpg)

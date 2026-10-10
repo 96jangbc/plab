@@ -1,0 +1,68 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-10 · 오버레이 앱 7종 · Polestar 오버레이 랩</title>
+<link rel="stylesheet" href="../assets/style.css"></head><body>
+<header class="top"><a class="brand" href="../index.html">🚗 Polestar 오버레이 랩</a></header>
+<div class="wrap"><aside class="side"><ul class="tree">
+<li class="dir"><span>projects</span><ul class="tree">
+<li class="file"><a href="01-projects/2026-10-09-gear-trip.html">2026-10-09 · 기어·전비 앱</a></li>
+<li class="file"><a href="01-projects/2026-10-10-overlay-7.html">2026-10-10 · 오버레이 앱 7종</a></li>
+<li class="file"><a href="01-projects/work-timeline.html">작업 내역 연표</a></li>
+</ul></li>
+<li class="dir"><span>briefings</span><ul class="tree">
+<li class="dir"><span>us-market</span><ul class="tree">
+<li class="file"><a href="02-briefings/01-us-market/2026-10-04.html">미국 증시 2026-10-04</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-05.html">미국 증시 2026-10-05</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-06.html">미국 증시 2026-10-06</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-07.html">미국 증시 2026-10-07</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-08.html">미국 증시 2026-10-08</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-09.html">미국 증시 2026-10-09</a></li>
+<li class="file"><a href="02-briefings/01-us-market/2026-10-10.html">미국 증시 2026-10-10</a></li>
+</ul></li>
+<li class="dir"><span>pem</span><ul class="tree">
+<li class="file"><a href="02-briefings/02-pem/2026-10-04.html">PEM 수전해 2026-10-04</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-05.html">PEM 수전해 2026-10-05</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-06.html">PEM 수전해 2026-10-06</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-07.html">PEM 수전해 2026-10-07</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-08.html">PEM 수전해 2026-10-08</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-09.html">PEM 수전해 2026-10-09</a></li>
+<li class="file"><a href="02-briefings/02-pem/2026-10-10.html">PEM 수전해 2026-10-10</a></li>
+</ul></li>
+<li class="file"><a href="02-briefings/index.html">데일리 브리핑</a></li>
+</ul></li>
+<li class="dir"><span>notes</span><ul class="tree">
+<li class="file"><a href="03-notes/aaos-overlay-tips.html">AAOS 오버레이 앱 개발 노트</a></li>
+</ul></li>
+<li class="file"><a href="index.html">시작하며</a></li>
+</ul></aside>
+<main class="content"><h1>2026-10-10 · 오버레이 앱 7종 만들기</h1>
+<p>하루 동안 폴스타 4에 올릴 사이드로드 오버레이 앱 7종을 만들었다. 모두 지니(Genie)와 함께.</p>
+<h2>만든 앱</h2>
+<table><thead><tr><th>앱</th><th>패키지</th><th>핵심 기능</th></tr></thead><tbody>
+<tr><td>🧭 기어</td><td>com.jangbc.gearoverlay</td><td>R N D P H 표시, 변속·오토홀드 알람</td></tr>
+<tr><td>⚡ 전비</td><td>(trip)</td><td>바퀴기반 주행거리·전비·배터리</td></tr>
+<tr><td>🚦 과속 경고</td><td>com.jangbc.speedoverlay</td><td>제한 속도 초과 시 빨강 + 비프</td></tr>
+<tr><td>📺 유튜브</td><td>com.jangbc.ytsoverlay</td><td>WebView로 유튜브 영상 재생</td></tr>
+<tr><td>🌐 웹</td><td>com.jangbc.weboverlay</td><td>아무 웹사이트 + 북마크 관리</td></tr>
+<tr><td>🔗 숏컷 독</td><td>com.jangbc.shortcutoverlay</td><td>설치앱 바로가기 독</td></tr>
+<tr><td>📷 주차 스냅샷</td><td>com.jangbc.parksnap</td><td>P 진입 시 촬영 → 텔레그램 전송 + 위치</td></tr>
+</tbody></table>
+<h2>공통 기술</h2>
+<ul>
+<li><strong>targetSdk 22</strong> → Android 12 기반 AAOS에서 <code>SYSTEM_ALERT_WINDOW</code> 자동 부여 (오버레이 권한 화면이 없음)</li>
+<li><strong>리플렉션 Car API</strong> — <code>android.car</code> 스텁에 컴파일하지 않고 런타임 조회 (<code>Class.forName</code>)</li>
+<li><strong>TYPE_APPLICATION_OVERLAY</strong> 포그라운드 서비스 + SharedPreferences 진단 로그</li>
+<li>JVM 단위 테스트 → <code>aapt dump badging</code> 검증 → zip 전송 (사이드로드)</li>
+</ul>
+<h2>시행착오 (요약)</h2>
+<ul>
+<li><strong>오버레이 창이 상태바에 가림</strong> — 창은 화면 맨 위에 배치되고 차 상단바가 덮음 → y를 상태바 높이 아래로 강제해야 헤더가 잡힘</li>
+<li><strong>MATCH_PARENT 창은 <code>lp.y</code> 무시</strong> — 전체화면 여백은 창 안쪽 뷰의 topMargin으로</li>
+<li><strong>유튜브 앱 임베드 불가</strong> — 다른 앱 UI는 오버레이에 못 넣음 → 웹버전(WebView)으로</li>
+<li><strong>도어 신호 차단</strong> — <code>DOOR_POS</code>는 Signature|Privileged 권한 → 서드파티 앱 불가 → 트리거를 "P 기어 진입"으로 대체</li>
+<li><strong>텔레그램 전송 3연타 실패</strong> — ①봇과 대화 미시작(chat not found) ②차에서 토큰 오타(401) ③캡션 UTF-8 깨짐(400)</li>
+</ul>
+<h2>결과</h2>
+<p>7종 모두 실차 동작. 특히 주차 스냅샷은 P 넣으면 사진 + 위치(지도)가 텔레그램으로 자동 도착.</p></main></div>
+<footer class="foot">© 2026 Polestar 오버레이 랩 · 지니(Genie)와 함께 만든 기록</footer>
+</body></html>

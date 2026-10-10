@@ -4,7 +4,7 @@ import os, re, html, shutil, datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(ROOT, "content")
-OUT = os.path.join(ROOT, "site")
+OUT = os.path.join(ROOT, "docs")
 
 def esc(s): return html.escape(s, quote=False)
 

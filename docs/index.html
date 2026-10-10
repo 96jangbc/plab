@@ -41,27 +41,55 @@
 <li class="dir"><span>notes</span><ul class="tree">
 <li class="file"><a href="03-notes/aaos-overlay-tips.html">AAOS 오버레이 앱 개발 노트</a></li>
 </ul></li>
-<li class="file"><a href="index.html">시작하며</a></li>
+<li class="file"><a href="index.html">jangbc's AI life</a></li>
 </ul></aside>
 <main class="content"><h1>🧞 jangbc's AI life</h1>
-<p>폴스타 4(AAOS)에서 지니(Genie)와 함께 만든 <strong>사이드로드 오버레이 앱</strong>들의 기록입니다.</p>
-<p>직접 빌드한 Android 오버레이 앱, 차량 데이터 접근 시행착오, 매일의 브리핑을 트리로 정리합니다.</p>
-<h2>이 사이트 구성</h2>
+<p><strong>폴스타 4(Android Automotive) 위에 직접 만든 오버레이 앱</strong>과, AI와 함께한 매일의 기록을 모은 개인 기술 블로그입니다.</p>
+<p>차를 뜯거나 개조하지 않고, <strong>순정 화면 위에 필요한 기능만 얹는 것</strong> — 그게 이 블로그의 주제입니다.</p>
+<p><img alt="유튜브 오버레이가 내비게이션 위에 떠 있는 모습" src="assets/img/youtube-2.jpg"></p>
+<h2>이곳은?</h2>
+<p>단순한 "로그 모음"이 아니라, <strong>직접 만들어 쓰며 겪은 경험</strong>을 남기는 곳입니다.</p>
+<p>막히고 실패한 과정까지 그대로 적어 둡니다. 같은 걸 시도하는 누군가에게 지름길이 되도록.</p>
 <ul>
-<li><strong>01 프로젝트 로그</strong> — 우리가 만든 앱들과 그 과정</li>
-<li><strong>02 데일리 브리핑</strong> — 미국 증시 / PEM 수전해 브리핑 아카이브</li>
-<li><strong>03 기술 노트</strong> — AAOS 오버레이 앱 개발 팁·함정</li>
+<li>만든 사람: <strong>jangbc</strong> (차와 코딩을 좋아하는 개인)</li>
+<li>함께한 조력자: <strong>지니(Genie)</strong> — 램프에서 나온 AI 조력자</li>
+<li>다루는 것: 안드로이드 오버레이 앱 · 차량 데이터 접근 · 매일의 시장 브리핑</li>
 </ul>
-<h2>지금까지 만든 것</h2>
-<table><thead><tr><th>오버레이 앱</th><th>버전</th><th>핵심</th></tr></thead><tbody>
-<tr><td>🧭 기어 (R N D P H)</td><td>v0.7.1</td><td>변속/오토홀드 알람, H 형광노랑</td></tr>
-<tr><td>⚡ 전비 (trip)</td><td>v0.9.0</td><td>바퀴기반 거리·전비·배터리</td></tr>
-<tr><td>🚦 과속 경고</td><td>v0.1.0</td><td>제한 초과 시 빨강+삐</td></tr>
-<tr><td>📺 유튜브 오버레이</td><td>v0.3.6</td><td>WebView 영상 재생·전체화면</td></tr>
-<tr><td>🌐 웹 오버레이</td><td>v0.1.3</td><td>아무 사이트·추천 북마크</td></tr>
-<tr><td>🔗 숏컷 독</td><td>v0.2.0</td><td>앱 바로가기, 배열(세로×가로)</td></tr>
-<tr><td>📷 주차 스냅샷</td><td>v0.4.2</td><td>P 진입 → 촬영 → 텔레그램+위치</td></tr>
+<h2>왜 시작했나?</h2>
+<p>폴스타 4는 화면도 좋고 차도 좋지만, 매일 쓰다 보면 아쉬운 순간이 생깁니다.</p>
+<ul>
+<li>계기판에 <strong>지금 기어가 뭔지</strong> 한눈에 안 들어옴</li>
+<li><strong>유튜브를 내비와 동시에</strong> 보고 싶음</li>
+<li>주차하고 나서 <strong>어디에 세웠는지</strong> 까먹음</li>
+<li>이번 주행 <strong>전비는 얼마였지?</strong> 궁금함</li>
+</ul>
+<p>정식 앱스토어엔 이런 게 없어서, <strong>AI 조력자와 함께 하나씩 직접 만들었습니다.</strong> 그게 이 블로그의 시작입니다.</p>
+<h2>무엇이 있나</h2>
+<table><thead><tr><th>섹션</th><th>내용</th></tr></thead><tbody>
+<tr><td><strong>01 프로젝트</strong></td><td>직접 만든 오버레이 <strong>앱 7종</strong> — 기능·사용법·기술·시행착오</td></tr>
+<tr><td><strong>02 데일리 브리핑</strong></td><td><strong>미국 증시</strong> · <strong>PEM 수전해</strong> 매일 자동 브리핑 아카이브</td></tr>
+<tr><td><strong>03 기술 노트</strong></td><td>AAOS 오버레이 앱 개발 <strong>팁과 함정</strong></td></tr>
 </tbody></table>
-<blockquote>모든 앱은 실제 차량에서 테스트했고, 시행착오를 그대로 남겼습니다.</blockquote></main></div>
+<h2>대표 프로젝트</h2>
+<p><strong>🧭 기어 오버레이</strong> — R·N·D·P(+오토홀드 H)를 화면에 크게. 변속하면 알람.</p>
+<p><img alt="기어 오버레이" src="assets/img/gear-1.jpg"></p>
+<p><strong>📺 유튜브 오버레이</strong> — 유튜브를 작은 창으로 띄워 내비와 함께. 전체화면 토글까지.</p>
+<p><img alt="유튜브 오버레이 전체화면" src="assets/img/youtube-4.jpg"></p>
+<p><strong>📷 주차 스냅샷</strong> — P 기어에 넣으면 자동 촬영 → <strong>텔레그램으로 사진 + 위치(지도)</strong> 전송.</p>
+<p><img alt="주차 스냅샷 텔레그램 전송" src="assets/img/parksnap-tg2.jpg"></p>
+<p>전체 7종은 <strong><a href="01-projects/index.html">01 프로젝트</a></strong> 에서 볼 수 있습니다.</p>
+<h2>어떤 순서로 볼까?</h2>
+<ol>
+<li><strong>앱이 궁금하다</strong> → <a href="01-projects/index.html">01 프로젝트</a></li>
+<li><strong>매일의 시장 브리핑</strong> → <a href="02-briefings/index.html">02 데일리 브리핑</a></li>
+<li><strong>개발 팁/함정</strong> → <a href="03-notes/aaos-overlay-tips.html">03 기술 노트</a></li>
+</ol>
+<h2>참고</h2>
+<ul>
+<li>모든 앱은 <strong>실제 폴스타 4 차량에서 테스트</strong>했습니다.</li>
+<li>차량 <strong>개조가 아니라 순정 화면 위 오버레이</strong>이며, 사용은 본인 책임입니다.</li>
+<li>브리핑은 <strong>자동화로 매일 갱신</strong>됩니다.</li>
+</ul>
+<blockquote>궁금한 점, 같이 만들고 싶은 기능이 있다면 언제든 환영입니다. 🧞</blockquote></main></div>
 <footer class="foot">© 2026 jangbc's AI life · 지니(Genie)와 함께 만든 기록</footer>
 </body></html>

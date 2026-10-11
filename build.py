@@ -269,6 +269,17 @@ def main():
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}<span class="since"> · Since 2026-10-11 (<span id="sinceDays">1</span>일차)</span></footer>
+<script id="copyGuard">(function(){
+function editable(t){ if(!t) return false; var n=t.nodeName?t.nodeName.toLowerCase():'';
+ return n==='input'||n==='textarea'||(t.isContentEditable===true); }
+function block(e){ if(editable(e.target)) return; e.preventDefault(); }
+document.addEventListener('copy',block);
+document.addEventListener('cut',block);
+document.addEventListener('contextmenu',block);
+document.addEventListener('dragstart',block);
+document.addEventListener('selectstart',block);
+document.addEventListener('keydown',function(e){ if((e.ctrlKey||e.metaKey)&&(e.key==='c'||e.key==='x'||e.key==='a')){ if(editable(e.target)) return; e.preventDefault(); }});
+})();</script>
 <script>(function(){{var s=new Date("2026-10-11T00:00:00+09:00");var d=Math.floor((new Date()-s)/86400000)+1;if(d<1)d=1;var e=document.getElementById("sinceDays");if(e)e.textContent=d;}})();</script>
 </body></html>'''
                 dst = os.path.join(out_dir, relhtml)

@@ -119,6 +119,8 @@ def build_tree(dirpath, rel=''):
                 dlabel = _m2.get('nav') or label_for(((rel + '/' + name) if rel else name) + '/index.md', _m2.get('title'))
             items.append(('dir', name, sub, dlink, dlabel))
         elif name.endswith('.md'):
+            if name == 'index.md' and rel:
+                continue  # 섹션 인덱스는 트리 요약(summary)에서 이미 링크됨
             base = name[:-3]
             m = DATE_RE.match(base)
             link = (rel + '/' if rel else '') + base + '.html'

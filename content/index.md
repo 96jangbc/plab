@@ -1,7 +1,7 @@
 ---
 title: jangbc's AI life
 ---
-# 🦞 jangbc's AI life
+# ![Claw](assets/img/logo.png) jangbc's AI life
 
 **폴스타 4(Android Automotive) 위에 직접 만든 오버레이 앱**과, AI와 함께한 매일의 기록을 모은 개인 기술 블로그입니다.
 차를 뜯거나 개조하지 않고, **순정 화면 위에 필요한 기능만 얹는 것** — 그게 이 블로그의 주제입니다.

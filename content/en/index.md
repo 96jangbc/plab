@@ -1,7 +1,7 @@
 ---
 title: jangbc's AI life
 ---
-# 🦞 jangbc's AI life
+# ![Claw](assets/img/logo.png) jangbc's AI life
 
 A personal tech blog collecting the **overlay apps I built directly on my Polestar 4 (Android Automotive)** and a daily log of life alongside AI.
 No tearing the car apart, no modifications — just **layering only the features you need on top of the stock screen**. That's what this blog is about.

@@ -55,3 +55,12 @@ ul.tree summary a{color:var(--fg);text-decoration:none}
 ul.tree summary a:hover{text-decoration:underline}
 ul.tree ul{padding-left:14px;margin:0}
 li.file a.cur{font-weight:700;color:var(--acc)}
+
+/* --- 복사 방지(무단 복제 억제) --- */
+.content, .side, .foot, header.top {
+  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+}
+.content img, .side img { -webkit-user-drag: none; user-drag: none; }
+/* 입력창·댓글은 예외 (정상 사용) */
+input, textarea, [contenteditable="true"], .giscus, .giscus-frame, iframe { -webkit-user-select: text !important; user-select: text !important; }

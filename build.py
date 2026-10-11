@@ -163,8 +163,10 @@ def main():
                 doc = f'''<!doctype html><html lang="{'ko' if lang == 'ko' else 'en'}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(ttl)}</title>
-<link rel="stylesheet" href="{up}assets/style.css"></head><body>
-<header class="top"><a class="brand" href="{up}index.html">🦞 jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<link rel="stylesheet" href="{up}assets/style.css">
+<link rel="icon" type="image/png" href="{up}assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png"></head><body>
+<header class="top"><a class="brand" href="{up}index.html"><img class="logo" src="{up}assets/img/logo.png" alt=""> jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}</footer>

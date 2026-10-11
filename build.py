@@ -121,7 +121,7 @@ def nav_has(tree, prefix, cur):
         if item[0] in ('dir', 'ym', 'ymm'):
             if nav_has(item[2], prefix, cur):
                 return True
-        elif item[0] == 'file' and prefix + item[1] == cur:
+        elif item[0] == 'file' and item[1] == cur:
             return True
     return False
 
@@ -142,7 +142,7 @@ def render_nav(tree, prefix="", cur=None):
                        % (op, head, render_nav(sub, prefix, cur)))
         else:
             link, title = item[1], item[2]
-            cc = ' class="cur"' if (cur and prefix + link == cur) else ''
+            cc = ' class="cur"' if (cur and link == cur) else ''
             out.append('<li class="file"><a%s href="%s">%s</a></li>' % (cc, esc(prefix + link), esc(title)))
     out.append('</ul>')
     return '\n'.join(out)

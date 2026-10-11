@@ -118,10 +118,17 @@
 <li>앱에 봇 토큰·챗ID 입력(내장 기본값 있음) → 저장</li>
 <li>"오버레이 켜기" → <strong>P 넣으면 자동 촬영·전송</strong></li>
 </ol>
+<h2>안정화 (v0.5.4)</h2>
+<ul>
+<li><strong>반복 전송 버그</strong>: 중단 기준을 "전송 성공"으로 잡아 전송 실패 시 10초마다 재촬영·재전송 ✗ → <strong>"촬영 성공" 기준</strong>으로 변경, 전송은 3회 재시도 후 포기 ✓</li>
+<li><strong>터치 먹통</strong>: 크래시 후 오버레이 창이 남아 화면 터치를 독점 ✗ → <code>FLAG_NOT_TOUCH_MODAL</code> + 크래시 시 오버레이 자동 제거 핸들러 ✓</li>
+<li>용량: OCR(ML Kit 52MB) 비활성으로 52MB → <strong>54KB</strong> ✓</li>
+</ul>
 <h2>배운 것 (시행착오)</h2>
 <ul>
 <li><strong>차량 카메라</strong>: EVS(서라운드뷰) API는 시스템 전용이지만, <strong>Camera2 API로는 접근 가능</strong> (실차 촬영 성공)</li>
 <li><strong>도어 신호 차단</strong>: <code>DOOR_POS</code>는 Signature|Privileged 권한 → 서드파티 불가 → 트리거를 <strong>P 진입</strong>으로</li>
+<li><strong>오버레이 중단 조건</strong>: "촬영 성공" 기준이어야 함(전송 성공 기준이면 실패 시 무한 반복) · 크래시 핸들러로 오버레이 제거 필수</li>
 <li><strong>텔레그램 실패 3연타</strong>: ①봇과 대화 미시작(chat not found) ②차에서 토큰 오타(401) ③캡션 UTF-8 깨짐(400)</li>
 </ul>
 <h2>스크린샷</h2>

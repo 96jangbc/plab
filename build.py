@@ -93,7 +93,11 @@ def build_tree(dirpath, rel=''):
             sub = build_tree(full, (rel + '/' + name) if rel else name)
             idx = os.path.join(full, 'index.md')
             dlink = ((rel + '/' + name) if rel else name) + '/index.html' if os.path.exists(idx) else None
-            items.append(('dir', name, sub, dlink))
+            dlabel = None
+            if os.path.exists(idx):
+                _m2, _ = parse(idx)
+                dlabel = _m2.get('title')
+            items.append(('dir', name, sub, dlink, dlabel))
         elif name.endswith('.md'):
             base = name[:-3]
             m = DATE_RE.match(base)
@@ -134,7 +138,8 @@ def render_nav(tree, prefix="", cur=None):
             op = ' open' if nav_has(sub, prefix, cur) else ''
             if kind == 'dir':
                 dlink = item[3] if len(item) > 3 else None
-                label = esc(re.sub(r'^\d+[-_]', '', item[1]))
+                dlabel = item[4] if len(item) > 4 else None
+                label = esc(dlabel) if dlabel else esc(re.sub(r'^\d+[-_]', '', item[1]))
                 head = ('<a href="%s">%s</a>' % (esc(prefix + dlink), label)) if dlink else ('<span>%s</span>' % label)
             else:
                 head = '<span>%s</span>' % esc(item[1])

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import subprocess, json, datetime, os
 JOBS = {
-  "01-us-market": ("761e4c4e-74a4-4100-acba-385245542828", "미국 증시"),
-  "02-pem":       ("4e3262f1-b3f4-4641-ad29-279851d25a6a", "PEM 수전해"),
+  "02-invest/us-market": ("761e4c4e-74a4-4100-acba-385245542828", "미국 증시"),
+  "01-tech/pem":  ("4e3262f1-b3f4-4641-ad29-279851d25a6a", "PEM 수전해"),
 }
 base = os.path.dirname(os.path.abspath(__file__))
 for sub, (jobid, label) in JOBS.items():
@@ -11,7 +11,7 @@ for sub, (jobid, label) in JOBS.items():
         d = json.loads(out)
     except Exception as e:
         print(sub, "fetch fail", e); continue
-    d2 = os.path.join(base, "content/02-briefings", sub); os.makedirs(d2, exist_ok=True)
+    d2 = os.path.join(base, "content", sub); os.makedirs(d2, exist_ok=True)
     seen = set()
     for e in d.get("entries", []):
         summ = (e.get("summary") or "").strip()

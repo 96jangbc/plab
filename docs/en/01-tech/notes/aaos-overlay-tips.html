@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AAOS Overlay App Development Notes · jangbc's AI life</title>
+<link rel="stylesheet" href="../../assets/style.css?v=75b54861">
+<link rel="icon" type="image/png" href="../../assets/img/favicon-32.png?v=75b54861">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=75b54861"></head><body>
+<header class="top"><a class="brand" href="../../index.html"><img class="logo" src="../../assets/img/logo.png?v=75b54861" alt=""> jangbc's AI life</a><span class="hright"><a class="lang" href="../../../01-tech/notes/aaos-overlay-tips.html">🇰🇷 한국어</a><span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<div class="wrap"><aside class="side"><ul class="tree">
+<li class="dir"><details open><summary><a href="../../01-tech/index.html">tech</a></summary><ul class="tree">
+<li class="file"><a href="../../01-tech/index.html">Tech</a></li>
+<li class="dir"><details open><summary><span>notes</span></summary><ul class="tree">
+<li class="file"><a class="cur" href="../../01-tech/notes/aaos-overlay-tips.html">AAOS Overlay App Development Notes</a></li>
+<li class="file"><a href="../../01-tech/notes/opencode-go-models.html">OpenCode Go Model Analysis &amp; Picks</a></li>
+</ul></details></li>
+</ul></details></li>
+<li class="dir"><details><summary><span>briefings</span></summary><ul class="tree">
+</ul></details></li>
+<li class="dir"><details><summary><a href="../../02-invest/index.html">invest</a></summary><ul class="tree">
+<li class="file"><a href="../../02-invest/index.html">Daily Briefings</a></li>
+</ul></details></li>
+<li class="dir"><details><summary><a href="../../03-hobby/index.html">hobby</a></summary><ul class="tree">
+<li class="file"><a href="../../03-hobby/index.html">Hobby</a></li>
+<li class="dir"><details><summary><a href="../../03-hobby/polestar-apps/index.html">polestar-apps</a></summary><ul class="tree">
+<li class="file"><a href="../../03-hobby/polestar-apps/01-gear.html">Gear Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/02-trip.html">Efficiency Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/03-speed.html">Speeding Alert</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/04-youtube.html">YouTube Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/05-web.html">Web Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/06-shortcut.html">Shortcut Dock</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/07-park-snap.html">Park Snapshot</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/index.html">App List</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/work-timeline.html">Work Timeline</a></li>
+</ul></details></li>
+</ul></details></li>
+<li class="file"><a href="../../index.html">jangbc's AI life</a></li>
+</ul></aside>
+<main class="content"><h1>AAOS Overlay App Development Notes</h1>
+<p>Hands-on tips from building sideloaded overlay apps for the Polestar 4 (Android Automotive).</p>
+<h2>1. Use targetSdk 22 for overlay permission</h2>
+<p>Android 12-based AAOS has no "Display over other apps" settings screen. With <code>targetSdk 22</code>, <code>SYSTEM_ALERT_WINDOW</code> is granted automatically at install. (Android 14+ blocks installing with such a low target, so first check whether your car is pre-14.)</p>
+<h2>2. Access vehicle data via reflection</h2>
+<p>Compiling against the <code>android.car</code> stub causes runtime crashes (<code>ClassNotFoundException</code>) due to version differences. Use <code>Class.forName("android.car.Car")</code> → <code>createCar</code> → <code>getCarManager("property")</code>, then look up the ID via the <code>VehiclePropertyIds</code> field.</p>
+<p>What you can read (measured): <code>GEAR_SELECTION</code>, <code>PERF_VEHICLE_SPEED</code>, <code>EV_BATTERY_LEVEL</code>, <code>WHEEL_TICK</code>, <code>IGNITION_STATE</code>, <code>PARKING_BRAKE_ON</code>, <code>RANGE_REMAINING</code>, and more.</p>
+<p>What's blocked: doors (<code>DOOR_POS</code>) · seat belts (<code>SEAT_BELT_BUCKLED</code>) → these require Signature|Privileged permission.</p>
+<h2>3. Overlay window placement pitfalls</h2>
+<ul>
+<li>The window is placed at the <strong>very top of the screen (y=0)</strong> and the car's top status bar covers it → the header is hidden and can't be dragged.</li>
+</ul>
+<p>  → <strong>Force (clamp) y to at least the status bar height</strong>, and also provide move buttons.</p>
+<ul>
+<li><strong>A <code>MATCH_PARENT</code> window ignores <code>lp.y</code></strong> → control fullscreen margins with the <strong>topMargin of the inner view</strong>.</li>
+<li>Always include <strong>button-based window movement</strong> for when the header can't be grabbed.</li>
+</ul>
+<h2>4. WebView video overlays</h2>
+<ul>
+<li>YouTube embeds can play in an overlay WebView (INTERNET, JS + DOM storage + <code>setMediaPlaybackRequiresUserGesture(false)</code>).</li>
+<li><strong>Other native app UIs can't be embedded in the overlay</strong> → only web versions work.</li>
+<li>Google sign-in and DRM (Netflix, etc., Widevine L1) are blocked in WebView. (TVING and Wavve do play)</li>
+</ul>
+<h2>5. Vehicle camera</h2>
+<ul>
+<li>The EVS (surround view) API is system-only → not available to third parties.</li>
+<li>The <strong>Camera2 API</strong> is open → successfully accessed and captured from one camera on the real car.</li>
+</ul>
+<h2>6. Telegram bot sending</h2>
+<ul>
+<li>The bot can only send after <strong>the user runs <code>/start</code></strong> (prevents <code>chat not found</code>).</li>
+<li>Multipart captions must always be <strong>UTF-8 bytes</strong> (<code>DataOutputStream.writeBytes</code> uses ISO-8859-1, which mangles Korean and emoji → 400).</li>
+<li>On failure, <strong>displaying the response body</strong> makes diagnosis much faster.</li>
+</ul><section class="comments"><h3>💬 댓글</h3>
+<script src="https://giscus.app/client.js"
+  data-repo="96jangbc/polestar-overlay-lab"
+  data-repo-id="R_kgDOVDlG9A"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOVDlG9M4DHfgF"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async></script>
+<noscript>댓글을 보려면 JavaScript를 켜 주세요.</noscript></section></main></div>
+<footer class="foot">© 2026 jangbc's AI life · Made with Claw</footer>
+</body></html>

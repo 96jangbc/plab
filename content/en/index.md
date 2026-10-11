@@ -47,12 +47,12 @@ There's nothing like this in the official app store, so I **built them one by on
 
 ![Parking Snapshot sent to Telegram](assets/img/parksnap-tg2.jpg)
 
-You can see all 7 in **[01 Projects](01-projects/index.html)**.
+You can see all 7 in **[01 Projects](03-hobby/polestar-apps/index.html)**.
 
 ## Where should I start?
-1. **Curious about the apps** → [01 Projects](01-projects/index.html)
-2. **Daily market briefings** → [02 Daily Briefings](02-briefings/index.html)
-3. **Dev tips/pitfalls** → [03 Tech Notes](03-notes/aaos-overlay-tips.html)
+1. **Curious about the apps** → [01 Projects](03-hobby/polestar-apps/index.html)
+2. **Daily market briefings** → [02 Daily Briefings](02-invest/index.html)
+3. **Dev tips/pitfalls** → [03 Tech Notes](01-tech/notes/aaos-overlay-tips.html)
 
 ## Notes
 - Every app was **tested on an actual Polestar 4 vehicle**.

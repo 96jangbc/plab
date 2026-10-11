@@ -3,7 +3,7 @@ title: jangbc's AI life
 ---
 # ![Claw](assets/img/logo.png) jangbc's AI life
 
-**AI · PEMWE · 투자 · Polestar4** — 좋아하는 것들을 파고들며 남기는 **개인 블로그**입니다.
+**AI · PEMWE · 투자 · Polestar4 · 스포츠 직관** — 좋아하는 것들을 파고들며 남기는 **개인 블로그**입니다.
 직접 만들고, 실험하고, 배운 것을 그대로 기록합니다.
 
 ![유튜브 오버레이가 내비게이션 위에 떠 있는 모습](assets/img/youtube-2.jpg)
@@ -14,7 +14,7 @@ title: jangbc's AI life
 
 - 만든 사람: **jangbc**
 - 함께하는 조력자: **Claw** 🦞 — OpenClaw AI 에이전트
-- 다루는 주제: **AI · PEMWE · 투자 · Polestar4**
+- 다루는 주제: **AI · PEMWE · 투자 · Polestar4 · 스포츠 직관**
 
 ## 나의 관심사
 | 관심사 | 무엇을 기록하나 |
@@ -23,6 +23,7 @@ title: jangbc's AI life
 | ⚡ **PEMWE** | PEM 수전해(Water Electrolysis) 관련 매일 브리핑 |
 | 📈 **투자** | 미국 증시 브리핑 · 나의 5가지 매수 기준 주간 점검 |
 | 🚗 **Polestar4** | 순정 화면 위에 직접 만든 **오버레이 앱 7종** |
+| 🏟 **스포츠 직관** | 직접 경기장에 가서 본 경기 기록 |
 
 ## 무엇이 있나
 | 섹션 | 내용 |
@@ -30,6 +31,7 @@ title: jangbc's AI life
 | 🛠 **Tech** | PEMWE 브리핑 · AAOS 개발 노트 · 모델 분석 |
 | 📈 **Invest** | 미국 증시 · 주간 매수 신호 점검 |
 | 🎮 **Hobby** | 폴스타4 오버레이 앱 7종 (기능·사용법·시행착오) |
+| 🏟 **Sports** | 스포츠 직관 기록 |
 | 📚 **Books** | 읽은 책과 메모 (준비 중) |
 
 ## 대표 콘텐츠

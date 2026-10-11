@@ -6,7 +6,7 @@ title: jangbc's AI life
 **AI · PEMWE · Investing · Polestar4 · Sports** — a **personal blog** where I dig into the things I love.
 I build, experiment, and write down what I learn.
 
-![A YouTube overlay floating over navigation](assets/img/youtube-2.jpg)
+![Blog hero banner — AI · PEMWE · Investing · Polestar4](assets/img/hero.svg)
 
 ## What this is
 Not a grand information site — a **personal record of one person's interests and trial & error**.

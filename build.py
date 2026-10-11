@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Minimal static-site generator: content/**.md -> site/**.html with a tree nav.
-import os, re, html, shutil, datetime
+import os, re, html, shutil, datetime, hashlib
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(ROOT, "content")
@@ -117,6 +117,10 @@ def main():
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     year = datetime.date.today().year
+    try:
+        ASSET_V = hashlib.md5(open(os.path.join(ROOT, 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
+    except Exception:
+        ASSET_V = '1'
     comment_block = '''<section class="comments"><h3>\U0001F4AC 댓글</h3>
 <script src="https://giscus.app/client.js"
   data-repo="96jangbc/polestar-overlay-lab"
@@ -163,10 +167,10 @@ def main():
                 doc = f'''<!doctype html><html lang="{'ko' if lang == 'ko' else 'en'}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(ttl)}</title>
-<link rel="stylesheet" href="{up}assets/style.css">
-<link rel="icon" type="image/png" href="{up}assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png"></head><body>
-<header class="top"><a class="brand" href="{up}index.html"><img class="logo" src="{up}assets/img/logo.png" alt=""> jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<link rel="stylesheet" href="{up}assets/style.css?v={ASSET_V}">
+<link rel="icon" type="image/png" href="{up}assets/img/favicon-32.png?v={ASSET_V}">
+<link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png?v={ASSET_V}"></head><body>
+<header class="top"><a class="brand" href="{up}index.html"><img class="logo" src="{up}assets/img/logo.png?v={ASSET_V}" alt=""> jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/polestar-overlay-lab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}</footer>

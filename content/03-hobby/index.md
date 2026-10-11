@@ -1,5 +1,6 @@
 ---
 title: 취미
+nav: Hobby
 ---
 # 🎮 취미
 

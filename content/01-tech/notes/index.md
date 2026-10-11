@@ -1,5 +1,6 @@
 ---
 title: 기술 노트
+nav: Tech Notes
 ---
 # 🛠 기술 노트
 

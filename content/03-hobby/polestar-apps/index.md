@@ -1,5 +1,6 @@
 ---
 title: 앱 목록
+nav: Polestar Apps
 ---
 # 01 프로젝트 · 앱별 정리
 

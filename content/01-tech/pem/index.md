@@ -1,5 +1,6 @@
 ---
 title: PEM 수전해 브리핑
+nav: PEM
 ---
 # 🧪 PEM 수전해 데일리 브리핑
 

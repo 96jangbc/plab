@@ -1,5 +1,5 @@
 ---
-title: Daily Briefings
+title: Invest
 ---
 # Daily Briefing Archive
 

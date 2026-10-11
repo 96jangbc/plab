@@ -80,6 +80,26 @@ def title_of(meta, path):
     base = os.path.splitext(os.path.basename(path))[0]
     return re.sub(r'^\d+[-_]', '', base).replace('-', ' ').replace('_', ' ')
 
+USE_EN_LABELS = False
+
+def nav_field(path):
+    try:
+        m, _ = parse(path)
+        return m.get('nav')
+    except Exception:
+        return None
+
+def label_for(relpath, fallback):
+    if USE_EN_LABELS:
+        en = os.path.join(CONTENT, 'en', relpath)
+        if os.path.exists(en):
+            m, _ = parse(en)
+            if m.get('title'):
+                return m['title']
+    # explicit nav label on the KO file wins if present
+    return fallback
+    return fallback
+
 DATE_RE = re.compile(r'^(\d{4})-(\d{2})-(\d{2})$')
 
 def build_tree(dirpath, rel=''):
@@ -96,7 +116,7 @@ def build_tree(dirpath, rel=''):
             dlabel = None
             if os.path.exists(idx):
                 _m2, _ = parse(idx)
-                dlabel = _m2.get('title')
+                dlabel = _m2.get('nav') or label_for(((rel + '/' + name) if rel else name) + '/index.md', _m2.get('title'))
             items.append(('dir', name, sub, dlink, dlabel))
         elif name.endswith('.md'):
             base = name[:-3]
@@ -106,15 +126,16 @@ def build_tree(dirpath, rel=''):
                 dated.append((int(m.group(1)), int(m.group(2)), link))
             else:
                 meta, _ = parse(full)
-                items.append(('file', link, title_of(meta, full)))
+                frel = (rel + '/' + name) if rel else name
+                items.append(('file', link, nav_field(full) or label_for(frel, title_of(meta, full))))
     if dated:
         years = {}
         for y, mo, link in dated:
             years.setdefault(y, {}).setdefault(mo, []).append(('file', link, link.split('/')[-1][:-5]))
         yn = []
         for y in sorted(years, reverse=True):
-            mn = [('ymm', '%d\uc6d4' % mo, years[y][mo]) for mo in sorted(years[y], reverse=True)]
-            yn.append(('ym', '%d\ub144' % y, mn))
+            mn = [('ymm', datetime.date(2000, mo, 1).strftime('%b'), years[y][mo]) for mo in sorted(years[y], reverse=True)]
+            yn.append(('ym', str(y), mn))
         items.extend(yn)
     return items
 
@@ -220,7 +241,10 @@ def main():
                 pages += 1
         return pages
 
+    global USE_EN_LABELS
+    USE_EN_LABELS = True
     pages = run(KO, OUT, 'ko')
+    USE_EN_LABELS = False
     epages = run(EN, os.path.join(OUT, 'en'), 'en') if os.path.isdir(EN) else 0
     src_assets = os.path.join(ROOT, "assets")
     if os.path.isdir(src_assets):

@@ -1,5 +1,6 @@
 ---
 title: 주간 점검
+nav: Weekly
 ---
 # 📈 주간 점검
 

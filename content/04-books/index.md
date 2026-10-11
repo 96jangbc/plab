@@ -1,5 +1,6 @@
 ---
 title: 읽은책
+nav: Books
 ---
 # 📚 읽은책
 

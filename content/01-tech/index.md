@@ -1,8 +1,8 @@
 ---
-title: 기술
+title: Tech
 nav: Tech
 ---
-# 🛠 기술
+# 🛠 Tech
 
 기술 관련 기록을 모아둡니다.
 

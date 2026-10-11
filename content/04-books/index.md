@@ -1,8 +1,8 @@
 ---
-title: 읽은책
+title: Books
 nav: Books
 ---
-# 📚 읽은책
+# 📚 Books
 
 읽은 책을 **표지 + 간단 요약**으로 기록합니다.
 

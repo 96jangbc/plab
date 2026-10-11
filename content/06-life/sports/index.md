@@ -1,7 +1,7 @@
 ---
-title: 스포츠
+title: Sports
 ---
-# ⚽ 스포츠
+# 🏟 Sports
 
 직관과 운동 기록.
 

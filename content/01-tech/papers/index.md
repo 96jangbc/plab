@@ -1,7 +1,7 @@
 ---
-title: 학술논문
+title: Papers
 ---
-# 📄 학술논문
+# 📄 Papers
 
 나노 전극재료를 주제로 한 연구 논문 모음입니다. (Google Scholar 공개 프로필 기준)
 

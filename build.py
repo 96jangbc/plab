@@ -244,7 +244,7 @@ def main():
                     foot = "© %d jangbc's AI life · Claw와 함께 만든 기록" % year
                 else:
                     toggle = '<a class="lang" href="%s../%s">\U0001F1F0\U0001F1F7 한국어</a>' % (up, relhtml)
-                    foot = "© %d jangbc's AI life · Made with Claw" % year
+                    foot = "© %d jangbc's AI life · Made with 96claw" % year
                 cblock = '' if is_index else comment_block.replace('{data_lang}', lang)
                 ttl = t if is_index else t + " · jangbc's AI life"
                 desc = make_desc(body, meta if 'meta' in dir() else None)

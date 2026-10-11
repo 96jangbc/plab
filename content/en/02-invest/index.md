@@ -3,7 +3,7 @@ title: Invest
 ---
 # Daily Briefing Archive
 
-A date-by-date collection of the briefings Claw sends every morning.
+A date-by-date collection of the briefings 96claw sends every morning.
 
 - **01 US Markets** — daily at 06:00 (indices · key news · assets · sectors · Korean market)
 - **02 PEM Water Electrolysis** — daily at 08:00 (news · papers)

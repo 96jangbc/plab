@@ -1,7 +1,7 @@
 ---
 title: jangbc's AI life
 ---
-# ![Claw](assets/img/logo.png) jangbc's AI life
+# ![96claw](assets/img/logo.png) jangbc's AI life
 
 **AI · PEMWE · 투자 · Polestar4 · 스포츠 직관** — 좋아하는 것들을 파고들며 남기는 **개인 블로그**입니다.
 직접 만들고, 실험하고, 배운 것을 그대로 기록합니다.
@@ -13,13 +13,13 @@ title: jangbc's AI life
 잘된 것도, 막힌 것도 함께 남깁니다. 같은 걸 시도하는 누군가에게 지름길이 되도록.
 
 - 만든 사람: **jangbc**
-- 함께하는 조력자: **Claw** 🦞 — OpenClaw AI 에이전트
+- 함께하는 조력자: **96claw** 🦞 — OpenClaw AI 에이전트
 - 다루는 주제: **AI · PEMWE · 투자 · Polestar4 · 스포츠 직관**
 
 ## 나의 관심사
 | 관심사 | 무엇을 기록하나 |
 |---|---|
-| 🤖 **AI** | AI 에이전트(Claw)와 함께 일하기 · 모델 분석 · 자동화 |
+| 🤖 **AI** | AI 에이전트(96claw)와 함께 일하기 · 모델 분석 · 자동화 |
 | ⚡ **PEMWE** | PEM 수전해(Water Electrolysis) 관련 매일 브리핑 |
 | 📈 **투자** | 미국 증시 브리핑 · 나의 5가지 매수 기준 주간 점검 |
 | 🚗 **Polestar4** | 순정 화면 위에 직접 만든 **오버레이 앱 7종** |

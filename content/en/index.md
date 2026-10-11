@@ -1,7 +1,7 @@
 ---
 title: jangbc's AI life
 ---
-# ![Claw](assets/img/logo.png) jangbc's AI life
+# ![96claw](assets/img/logo.png) jangbc's AI life
 
 **AI · PEMWE · Investing · Polestar4 · Sports** — a **personal blog** where I dig into the things I love.
 I build, experiment, and write down what I learn.
@@ -13,13 +13,13 @@ Not a grand information site — a **personal record of one person's interests a
 I keep the wins and the dead ends, so anyone trying the same thing has a shortcut.
 
 - Built by: **jangbc**
-- Sidekick: **Claw** 🦞 — an OpenClaw AI agent
+- Sidekick: **96claw** 🦞 — an OpenClaw AI agent
 - Topics: **AI · PEMWE · Investing · Polestar4 · Sports**
 
 ## My interests
 | Interest | What I write about |
 |---|---|
-| 🤖 **AI** | Working with an AI agent (Claw) · model analysis · automation |
+| 🤖 **AI** | Working with an AI agent (96claw) · model analysis · automation |
 | ⚡ **PEMWE** | Daily briefings on PEM water electrolysis |
 | 📈 **Investing** | US market briefings · a weekly check of my 5 buy criteria |
 | 🚗 **Polestar4** | The **7 overlay apps** I built on the stock screen |

@@ -15,3 +15,4 @@ nav: Books
 
 ## 목록
 - **[돈의 속성](don-ui-sokseong.html)** — 김승호 · ★★★★★ (2026)
+- **[돈의 심리학](psychology-of-money.html)** — 모건 하우절 · ★★★★★ (2026)

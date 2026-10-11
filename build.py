@@ -269,7 +269,7 @@ def main():
 <div class="wrap"><aside class="side">{navp}</aside>
 <main class="content">{md_to_html(body)}{cblock}</main></div>
 <footer class="foot">{foot}<span class="since"> · Since 2026-10-11 (<span id="sinceDays">1</span>일차)</span></footer>
-<script>(function(){var s=new Date("2026-10-11T00:00:00+09:00");var d=Math.floor((new Date()-s)/86400000)+1;if(d<1)d=1;var e=document.getElementById("sinceDays");if(e)e.textContent=d;})();</script>
+<script>(function(){{var s=new Date("2026-10-11T00:00:00+09:00");var d=Math.floor((new Date()-s)/86400000)+1;if(d<1)d=1;var e=document.getElementById("sinceDays");if(e)e.textContent=d;}})();</script>
 </body></html>'''
                 dst = os.path.join(out_dir, relhtml)
                 os.makedirs(os.path.dirname(dst), exist_ok=True)

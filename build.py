@@ -8,11 +8,20 @@ OUT = os.path.join(ROOT, "docs")
 
 def esc(s): return html.escape(s, quote=False)
 
+
+def _linkify(m):
+    url = m.group(1); trail = ''
+    while url and url[-1] in '.,;:':
+        trail = url[-1] + trail; url = url[:-1]
+    return '<a href="%s" target="_blank" rel="noopener">%s</a>%s' % (url, url, trail)
+
 def inline(s):
     s = esc(s)
     s = re.sub(r'`([^`]+)`', r'<code>\1</code>', s)
     s = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img alt="\1" src="\2">', s)
     s = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', s)
+    # Auto-link bare URLs (not those already inside href="...")
+    s = re.sub(r'(?<!["\'>=\]])(https?://[^\s<>"\')]+)', _linkify, s)
     s = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', s)
     return s

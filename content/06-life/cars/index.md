@@ -15,7 +15,6 @@ title: Cars
 - **2022-03-04** — BMW iX3 → [BMW iX3](bmw-ix3.html)
 - **2022-03-30** — 볼보 XC40 리차지 → [볼보 XC40 리차지](volvo-xc40-recharge.html)
 - **2023-03-19** — BMW i4 → [BMW i4](bmw-i4.html)
-- **2025-02-20** — 폴스타 2 → [폴스타 2](polestar-2.html)
 - **2025-06-09** — 아우디 e-tron → [아우디 e-tron](audi-etron.html)
 - **현재** — 폴스타 4 (현재) → [폴스타 4 (현재)](polestar-4.html)
 

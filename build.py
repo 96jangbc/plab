@@ -185,7 +185,7 @@ def main():
         ASSET_V = '1'
     comment_block = '''<section class="comments"><h3>\U0001F4AC 댓글</h3>
 <script src="https://giscus.app/client.js"
-  data-repo="96jangbc/polestar-overlay-lab"
+  data-repo="96jangbc/plab"
   data-repo-id="R_kgDOVDlG9A"
   data-category="Announcements"
   data-category-id="DIC_kwDOVDlG9M4DHfgF"

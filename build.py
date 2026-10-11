@@ -15,6 +15,18 @@ def _linkify(m):
         trail = url[-1] + trail; url = url[:-1]
     return '<a href="%s" target="_blank" rel="noopener">%s</a>%s' % (url, url, trail)
 
+
+def make_desc(body, meta=None):
+    d = (meta or {}).get('description') if isinstance(meta, dict) else None
+    if d:
+        return re.sub(r'\s+', ' ', str(d)).strip()[:160]
+    txt = re.sub(r'```.*?```', ' ', body or '', flags=re.S)
+    txt = re.sub(r'!\[[^\]]*\]\([^)]*\)', ' ', txt)
+    txt = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', txt)
+    txt = re.sub(r'[#*`>\-\|]', ' ', txt)
+    txt = re.sub(r'\s+', ' ', txt).strip()
+    return txt[:155]
+
 def inline(s):
     s = esc(s)
     s = re.sub(r'`([^`]+)`', r'<code>\1</code>', s)
@@ -235,12 +247,21 @@ def main():
                     foot = "© %d jangbc's AI life · Made with Claw" % year
                 cblock = '' if is_index else comment_block.replace('{data_lang}', lang)
                 ttl = t if is_index else t + " · jangbc's AI life"
+                desc = make_desc(body, meta if 'meta' in dir() else None)
+                canon = 'https://96jangbc.github.io/plab/' + (relhtml if lang == 'ko' else 'en/' + relhtml)
                 doc = f'''<!doctype html><html lang="{'ko' if lang == 'ko' else 'en'}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(ttl)}</title>
 <link rel="stylesheet" href="{up}assets/style.css?v={ASSET_V}">
-<meta property="og:title" content="jangbc's AI life">
-<meta property="og:description" content="AI · PEMWE · 투자 · Polestar4 — 좋아하는 것들을 파고드는 개인 블로그">
+<meta name="description" content="{esc(desc)}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{canon}">
+<meta property="og:type" content="{'website' if is_index else 'article'}">
+<meta property="og:title" content="{esc(ttl)}">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:url" content="{canon}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"{'Blog' if is_index else 'BlogPosting'}","headline":"{esc(ttl)}","description":"{esc(desc)}","inLanguage":"{'ko' if lang == 'ko' else 'en'}","url":"{canon}","image":"https://96jangbc.github.io/plab/assets/img/hero-p4.jpg","author":{{"@type":"Person","name":"jangbc"}},"publisher":{{"@type":"Organization","name":"jangbc's AI life"}}}}</script>
 <meta property="og:image" content="https://96jangbc.github.io/plab/assets/img/hero-p4.jpg">
 <link rel="icon" type="image/png" href="{up}assets/img/favicon-32.png?v={ASSET_V}">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png?v={ASSET_V}"></head><body>
@@ -266,6 +287,28 @@ def main():
         if os.path.isdir(EN):
             shutil.copytree(src_assets, os.path.join(OUT, "en", "assets"))
     open(os.path.join(OUT, '.nojekyll'), 'w').write('')
+    # --- SEO: sitemap.xml + robots.txt ---
+    base = 'https://96jangbc.github.io/plab/'
+    urls = []
+    for dp, _, fs in os.walk(OUT):
+        for f in fs:
+            if f.endswith('.html'):
+                full = os.path.join(dp, f)
+                rel = os.path.relpath(full, OUT).replace(os.sep, '/')
+                if rel.startswith('assets/'):
+                    continue
+                urls.append((base + rel, datetime.date.fromtimestamp(os.path.getmtime(full)).isoformat()))
+    urls.sort()
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u, lm in urls:
+        sm.append('  <url><loc>%s</loc><lastmod>%s</lastmod><priority>%s</priority></url>'
+                  % (html.escape(u), lm, '1.0' if u == base + 'index.html' else '0.7'))
+    sm.append('</urlset>')
+    open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
+    open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write(
+        'User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n' % base)
+    print('sitemap:', len(urls), 'urls')
     print('built', pages + epages, 'pages (ko %d / en %d)' % (pages, epages))
 
 if __name__ == '__main__':

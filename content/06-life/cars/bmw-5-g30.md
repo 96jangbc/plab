@@ -1,12 +1,12 @@
 ---
-title: BMW 5시리즈 (G30)
+title: BMW 530e
 ---
-# 🚗 BMW 5시리즈 (G30)
+# 🚗 BMW 530e
 
-![BMW 5시리즈 (G30)](../../assets/img/cars/bmw-5-g30.jpg)
+![BMW 530e](../../assets/img/cars/bmw-5-g30.jpg)
 
 ## 차량 정보
-- **차종**: BMW 5시리즈 G30 LCI
+- **차종**: BMW 530e (G30, 플러그인 하이브리드)
 - **색상**: 그레이
 - **촬영 시기**: 2021-04-23 (사진 원본 EXIF/파일명 기준)
 - **비고**: 야외 주차장

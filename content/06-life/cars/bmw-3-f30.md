@@ -1,12 +1,12 @@
 ---
-title: BMW 3시리즈 (F30)
+title: BMW 3시리즈 GT
 ---
-# 🚗 BMW 3시리즈 (F30)
+# 🚗 BMW 3시리즈 GT
 
-![BMW 3시리즈 (F30)](../../assets/img/cars/bmw-3-f30.jpg)
+![BMW 3시리즈 GT](../../assets/img/cars/bmw-3-f30.jpg)
 
 ## 차량 정보
-- **차종**: BMW 3시리즈 F30
+- **차종**: BMW 3시리즈 GT (F34)
 - **색상**: 그레이
 - **촬영 시기**: 2018-05-07 (사진 원본 EXIF/파일명 기준)
 - **비고**: 지하주차장

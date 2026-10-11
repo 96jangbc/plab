@@ -232,7 +232,7 @@ def main():
 <link rel="stylesheet" href="{up}assets/style.css?v={ASSET_V}">
 <meta property="og:title" content="jangbc's AI life">
 <meta property="og:description" content="AI · PEMWE · 투자 · Polestar4 — 좋아하는 것들을 파고드는 개인 블로그">
-<meta property="og:image" content="https://96jangbc.github.io/plab/assets/img/hero-p4.png">
+<meta property="og:image" content="https://96jangbc.github.io/plab/assets/img/hero-p4.jpg">
 <link rel="icon" type="image/png" href="{up}assets/img/favicon-32.png?v={ASSET_V}">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png?v={ASSET_V}"></head><body>
 <header class="top"><a class="brand" href="{up}index.html"><img class="logo" src="{up}assets/img/logo.png?v={ASSET_V}" alt=""> jangbc's AI life</a><span class="hright">{toggle}<span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/plab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>

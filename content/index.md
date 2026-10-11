@@ -6,7 +6,7 @@ title: jangbc's AI life
 **AI · PEMWE · 투자 · Polestar4 · 스포츠 직관** — 좋아하는 것들을 파고들며 남기는 **개인 블로그**입니다.
 직접 만들고, 실험하고, 배운 것을 그대로 기록합니다.
 
-![블로그 소개 배너 — AI · PEMWE · 투자 · Polestar4](assets/img/hero-p4.png)
+![블로그 소개 배너 — AI · PEMWE · 투자 · Polestar4](assets/img/hero-p4.jpg)
 
 ## 이 블로그는?
 거창한 정보 사이트가 아니라, **한 사람의 관심사와 시행착오를 담는 개인 기록장**입니다.

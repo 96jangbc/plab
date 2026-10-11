@@ -80,8 +80,11 @@ def title_of(meta, path):
     base = os.path.splitext(os.path.basename(path))[0]
     return re.sub(r'^\d+[-_]', '', base).replace('-', ' ').replace('_', ' ')
 
+DATE_RE = re.compile(r'^(\d{4})-(\d{2})-(\d{2})$')
+
 def build_tree(dirpath, rel=''):
     items = []
+    dated = []
     for name in sorted(os.listdir(dirpath)):
         if name == 'en' and dirpath == CONTENT:
             continue
@@ -92,24 +95,55 @@ def build_tree(dirpath, rel=''):
             dlink = ((rel + '/' + name) if rel else name) + '/index.html' if os.path.exists(idx) else None
             items.append(('dir', name, sub, dlink))
         elif name.endswith('.md'):
-            meta, _ = parse(full)
-            link = (rel + '/' if rel else '') + name[:-3] + '.html'
-            items.append(('file', link, title_of(meta, full)))
+            base = name[:-3]
+            m = DATE_RE.match(base)
+            link = (rel + '/' if rel else '') + base + '.html'
+            if m:
+                dated.append((int(m.group(1)), int(m.group(2)), link))
+            else:
+                meta, _ = parse(full)
+                items.append(('file', link, title_of(meta, full)))
+    if dated:
+        years = {}
+        for y, mo, link in dated:
+            years.setdefault(y, {}).setdefault(mo, []).append(('file', link, link.split('/')[-1][:-5]))
+        yn = []
+        for y in sorted(years, reverse=True):
+            mn = [('ymm', '%d\uc6d4' % mo, years[y][mo]) for mo in sorted(years[y], reverse=True)]
+            yn.append(('ym', '%d\ub144' % y, mn))
+        items.extend(yn)
     return items
 
-def render_nav(tree, prefix=""):
+def nav_has(tree, prefix, cur):
+    if not cur:
+        return False
+    for item in tree:
+        if item[0] in ('dir', 'ym', 'ymm'):
+            if nav_has(item[2], prefix, cur):
+                return True
+        elif item[0] == 'file' and prefix + item[1] == cur:
+            return True
+    return False
+
+def render_nav(tree, prefix="", cur=None):
     out = ['<ul class="tree">']
     for item in tree:
-        kind, a, b = item[0], item[1], item[2]
-        dlink = item[3] if len(item) > 3 else None
-        if kind == 'dir':
-            label = esc(re.sub(r'^\d+[-_]','',a))
-            if dlink:
-                out.append('<li class="dir"><a href="%s">%s</a>%s</li>' % (esc(prefix + dlink), label, render_nav(b, prefix)))
+        kind = item[0]
+        if kind in ('dir', 'ym', 'ymm'):
+            sub = item[2]
+            op = ' open' if nav_has(sub, prefix, cur) else ''
+            if kind == 'dir':
+                dlink = item[3] if len(item) > 3 else None
+                label = esc(re.sub(r'^\d+[-_]', '', item[1]))
+                head = ('<a href="%s">%s</a>' % (esc(prefix + dlink), label)) if dlink else ('<span>%s</span>' % label)
             else:
-                out.append('<li class="dir"><span>%s</span>%s</li>' % (label, render_nav(b, prefix)))
+                head = '<span>%s</span>' % esc(item[1])
+            out.append('<li class="dir"><details%s><summary>%s</summary>%s</details></li>'
+                       % (op, head, render_nav(sub, prefix, cur)))
         else:
-            out.append('<li class="file"><a href="%s">%s</a></li>' % (esc(prefix + a), esc(b)))
+            link, title = item[1], item[2]
+            cc = ' class="cur"' if (cur and prefix + link == cur) else ''
+            out.append('<li class="file"><a%s href="%s">%s</a></li>' % (cc, esc(prefix + link), esc(title)))
     out.append('</ul>')
     return '\n'.join(out)
 
@@ -154,7 +188,7 @@ def main():
                 depth = rel.count(os.sep)
                 up = '../' * depth
                 t = title_of(meta, src)
-                navp = render_nav(tree, up)
+                navp = render_nav(tree, up, relhtml)
                 is_index = (rel == 'index.md')
                 if lang == 'ko':
                     toggle = ('<a class="lang" href="%sen/%s">\U0001F1FA\U0001F1F8 English</a>' % (up, relhtml)) if os.path.exists(os.path.join(EN, rel)) else ''

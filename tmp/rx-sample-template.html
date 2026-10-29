@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; color: #111; background: #fff; }
+  .page { width: 210mm; height: 297mm; padding: 14mm 15mm; position: relative; background: #fff; }
+  .watermark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
+  .watermark span { font-size: 96px; font-weight: 900; color: rgba(220,38,38,.11); transform: rotate(-28deg); letter-spacing: 10px; white-space: nowrap; }
+  h1 { text-align: center; font-size: 30px; letter-spacing: 8px; margin: 0 0 2mm; font-weight: 800; }
+  .sub { text-align: center; font-size: 11px; color: #666; letter-spacing: 3px; margin-bottom: 6mm; }
+  .badge { position: absolute; top: 10mm; right: 15mm; border: 2px solid #dc2626; color: #dc2626; font-weight: 800; font-size: 11px; padding: 2mm 4mm; border-radius: 3mm; letter-spacing: 2px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-bottom: 5mm; }
+  .box { border: 1px solid #bbb; border-radius: 2mm; padding: 4mm 5mm; }
+  .box h2 { font-size: 12px; margin: 0 0 3mm; color: #444; letter-spacing: 2px; border-bottom: 1px solid #ddd; padding-bottom: 2mm; }
+  .row { display: flex; align-items: baseline; margin: 2.2mm 0; font-size: 12.5px; }
+  .row .k { width: 26mm; color: #555; flex: none; }
+  .row .v { flex: 1; border-bottom: 1px dotted #999; min-height: 5mm; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { border: 1px solid #aaa; padding: 2.6mm 2mm; text-align: center; }
+  th { background: #f3f4f6; font-weight: 700; color: #333; }
+  td { height: 9mm; }
+  .full { margin-bottom: 5mm; }
+  .notice { position: absolute; left: 15mm; right: 15mm; bottom: 12mm; border: 1.5px solid #dc2626; background: #fff5f5; border-radius: 2mm; padding: 3mm 5mm; font-size: 11px; color: #b91c1c; text-align: center; line-height: 1.5; }
+  .sign { display: flex; justify-content: flex-end; gap: 8mm; font-size: 12px; margin-top: 3mm; }
+  .sign .line { border-bottom: 1px solid #888; min-width: 30mm; display: inline-block; }
+  .stamp { width: 18mm; height: 18mm; border: 2px dashed #bbb; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; color: #999; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="watermark"><span>샘플 · SPECIMEN</span></div>
+  <div class="badge">샘플 (실사용 불가)</div>
+  <h1>처 방 전</h1>
+  <div class="sub">PRESCRIPTION — SAMPLE FORM / 실제 처방전이 아닙니다</div>
+
+  <div class="grid">
+    <div class="box">
+      <h2>환자 정보</h2>
+      <div class="row"><span class="k">성명</span><span class="v"></span></div>
+      <div class="row"><span class="k">생년월일</span><span class="v"></span></div>
+      <div class="row"><span class="k">주소</span><span class="v"></span></div>
+      <div class="row"><span class="k">전화번호</span><span class="v"></span></div>
+      <div class="row"><span class="k">보험자</span><span class="v"></span></div>
+    </div>
+    <div class="box">
+      <h2>교부 정보</h2>
+      <div class="row"><span class="k">교부번호</span><span class="v"></span></div>
+      <div class="row"><span class="k">일련번호</span><span class="v"></span></div>
+      <div class="row"><span class="k">조제일자</span><span class="v"></span></div>
+      <div class="row"><span class="k">발급일자</span><span class="v"></span></div>
+      <div class="row"><span class="k">유효기간</span><span class="v"></span></div>
+    </div>
+  </div>
+
+  <div class="box full">
+    <h2>의료기관</h2>
+    <div class="row"><span class="k">기관명</span><span class="v"></span></div>
+    <div class="row"><span class="k">주소</span><span class="v"></span></div>
+    <div class="row"><span class="k">전화번호</span><span class="v"></span></div>
+    <div class="row"><span class="k">면허번호</span><span class="v"></span></div>
+  </div>
+
+  <div class="box full">
+    <h2>처방 의약품</h2>
+    <table>
+      <thead>
+        <tr><th style="width:38%">약품명 / 성분</th><th>1회 투약량</th><th>1일 투여횟수</th><th>총 투약일수</th><th style="width:16%">비고</th></tr>
+      </thead>
+      <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="sign">
+      <span>의사 성명 <span class="line"></span></span>
+      <span>면허번호 <span class="line"></span></span>
+      <span class="stamp">서명/도장</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    ⚠️ 본 문서는 <b>샘플(SPECIMEN)</b> 양식입니다. 실제 환자·의료 정보가 없으며, <b>실제 처방전으로 사용할 수 없습니다.</b><br>
+    실제 처방전의 발급·정정은 의료기관 및 약국의 정식 전산 절차를 이용하세요.
+  </div>
+</div>
+</body>
+</html>

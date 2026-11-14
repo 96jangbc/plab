@@ -4,7 +4,7 @@ nav: Polestar Apps
 ---
 # 01 프로젝트 · 앱별 정리
 
-폴스타4에서 Claw와 함께 만든 **사이드로드 오버레이 앱 10종**을 앱별로 정리했습니다.
+폴스타4에서 Claw와 함께 만든 **사이드로드 오버레이 앱 11종**을 앱별로 정리했습니다.
 
 | 앱 | 패키지 | 버전 | 한 줄 |
 |---|---|---|---|
@@ -15,6 +15,7 @@ nav: Polestar Apps
 | [🌐 웹 오버레이](05-web.html) | com.jangbc.weboverlay | v0.1.3 | 아무 사이트 + 북마크 |
 | [🔗 숏컷 독](06-shortcut.html) | com.jangbc.shortcutoverlay | v0.2.1 | 앱 바로가기 독 |
 | [📷 주차 스냅샷](07-park-snap.html) | com.jangbc.parksnap | v0.5.9 | P 진입 → 촬영 → 텔레그램+위치 |
+| [⌨️ 오버레이 키보드](08-keyboard.html) | com.jangbc.kboverlay | v0.2.0 | 화면 1/2 크기 떠 있는 키보드 |
 
 그 외 3종 — 🪟 앱 오버레이(appoverlay v0.1.0) · ❄️ 공조 오버레이(climateoverlay v0.2.0) · 🔍 카메라 진단(camdiag v0.1.0) — 상세 문서 준비 중
 

@@ -3,7 +3,7 @@ title: App List
 ---
 # 01 Projects · Apps at a glance
 
-The **7 sideloaded overlay apps** built together with 96claw on the Polestar 4, organized app by app.
+The **8 sideloaded overlay apps** built together with 96claw on the Polestar 4, organized app by app.
 
 | App | Package | Version | One-liner |
 |---|---|---|---|
@@ -14,5 +14,6 @@ The **7 sideloaded overlay apps** built together with 96claw on the Polestar 4, 
 | [🌐 Web overlay](05-web.html) | com.jangbc.weboverlay | v0.1.3 | Any site + bookmarks |
 | [🔗 Shortcut dock](06-shortcut.html) | com.jangbc.shortcutoverlay | v0.2.0 | App shortcut dock |
 | [📷 Parking Snapshot](07-park-snap.html) | com.jangbc.parksnap | v0.4.2 | Enter P → shoot → Telegram + location |
+| [⌨️ Overlay Keyboard](08-keyboard.html) | com.jangbc.kboverlay | v0.2.0 | Floating half-width keyboard |
 
 - [Work timeline](work-timeline.html)

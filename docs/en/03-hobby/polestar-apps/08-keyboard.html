@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overlay Keyboard · jangbc's AI life</title>
+<link rel="stylesheet" href="../../assets/style.css?v=ed41d4ec">
+<meta name="description" content="⌨️ Overlay Keyboard Turn the car's built in keyboard into a floating half width keyboard. Position, size and opacity are all adjustable in real time. What ">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://96jangbc.github.io/plab/en/03-hobby/polestar-apps/08-keyboard.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Overlay Keyboard · jangbc's AI life">
+<meta property="og:description" content="⌨️ Overlay Keyboard Turn the car's built in keyboard into a floating half width keyboard. Position, size and opacity are all adjustable in real time. What ">
+<meta property="og:url" content="https://96jangbc.github.io/plab/en/03-hobby/polestar-apps/08-keyboard.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Overlay Keyboard · jangbc's AI life","description":"⌨️ Overlay Keyboard Turn the car's built in keyboard into a floating half width keyboard. Position, size and opacity are all adjustable in real time. What ","inLanguage":"en","url":"https://96jangbc.github.io/plab/en/03-hobby/polestar-apps/08-keyboard.html","image":"https://96jangbc.github.io/plab/assets/img/hero-p4.jpg","author":{"@type":"Person","name":"jangbc"},"publisher":{"@type":"Organization","name":"jangbc's AI life"}}</script>
+<meta property="og:image" content="https://96jangbc.github.io/plab/assets/img/hero-p4.jpg">
+<link rel="icon" type="image/png" href="../../assets/img/favicon-32.png?v=ed41d4ec">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=ed41d4ec"></head><body>
+<header class="top"><a class="brand" href="../../index.html"><img class="logo" src="../../assets/img/logo.png?v=ed41d4ec" alt=""> jangbc's AI life</a><span class="hright"><a class="lang" href="../../../03-hobby/polestar-apps/08-keyboard.html">🇰🇷 한국어</a><span class="visits"><img alt="visitors" src="https://hits.sh/96jangbc.github.io/plab.svg?label=Views&amp;color=86b300&amp;labelColor=3a3f47"></span></span></header>
+<div class="wrap"><aside class="side"><ul class="tree">
+<li class="dir"><details><summary><a href="../../01-tech/index.html">Tech</a></summary><ul class="tree">
+<li class="dir"><details><summary><a href="../../01-tech/notes/index.html">Tech Notes</a></summary><ul class="tree">
+<li class="file"><a href="../../01-tech/notes/aaos-overlay-tips.html">AAOS Overlay App Development Notes</a></li>
+<li class="file"><a href="../../01-tech/notes/opencode-go-models.html">OpenCode Go Model Analysis &amp; Picks</a></li>
+</ul></details></li>
+</ul></details></li>
+<li class="dir"><details><summary><a href="../../02-invest/index.html">Invest</a></summary><ul class="tree">
+</ul></details></li>
+<li class="dir"><details open><summary><a href="../../03-hobby/index.html">Hobby</a></summary><ul class="tree">
+<li class="dir"><details open><summary><a href="../../03-hobby/polestar-apps/index.html">App List</a></summary><ul class="tree">
+<li class="file"><a href="../../03-hobby/polestar-apps/01-gear.html">Gear Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/02-trip.html">Efficiency Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/03-speed.html">Speeding Alert</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/04-youtube.html">YouTube Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/05-web.html">Web Overlay</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/06-shortcut.html">Shortcut Dock</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/07-park-snap.html">Park Snapshot</a></li>
+<li class="file"><a class="cur" href="../../03-hobby/polestar-apps/08-keyboard.html">Overlay Keyboard</a></li>
+<li class="file"><a href="../../03-hobby/polestar-apps/work-timeline.html">Work Timeline</a></li>
+</ul></details></li>
+</ul></details></li>
+<li class="dir"><details><summary><a href="../../05-sports/index.html">Sports</a></summary><ul class="tree">
+<li class="dir"><details><summary><a href="../../05-sports/baseball/index.html">Baseball</a></summary><ul class="tree">
+</ul></details></li>
+<li class="dir"><details><summary><a href="../../05-sports/football/index.html">Football</a></summary><ul class="tree">
+</ul></details></li>
+</ul></details></li>
+<li class="file"><a href="../../index.html">jangbc's AI life</a></li>
+</ul></aside>
+<main class="content"><h1>⌨️ Overlay Keyboard</h1>
+<p><strong>Turn the car's built-in keyboard into a floating half-width keyboard.</strong> Position, size and opacity are all adjustable in real time.</p>
+<h2>What it is</h2>
+<p>The Polestar 4's stock keyboard takes up the <strong>entire screen width</strong>. Type one character in a search box and the whole bottom half of the screen is gone. This app floats a keyboard at <strong>half the screen width</strong>, so you can type while still seeing the content behind it.</p>
+<p>As in the screenshot, it appears as a <strong>half-width card</strong> above the search field, and expands up to 95% when needed.</p>
+<p><img alt="Overlay keyboard running" src="../../assets/img/kboverlay-1.jpg"></p>
+<h2>Features</h2>
+<ul>
+<li><strong>Half-width (1/2) floating keyboard</strong> — 50% by default, 95% when expanded</li>
+<li><strong>Hangul composition</strong> — choseong/jungseong/jongseong, compound vowels (ㅘㅙㅚㅝㅞㅟㅢ), double finals (ㄳㄵㄺㅄ …)</li>
+<li><strong>⇧ double-consonant linkage</strong> — the row actually changes to <code>ㅃㅉㄸㄲㅆ</code> and active keys are highlighted by color</li>
+<li><strong>8 display settings</strong> — theme / font weight / font size / horizontal position / bottom margin / opacity / width / key height</li>
+<li><strong>Everything updates live</strong> — move a slider and the keyboard changes instantly</li>
+</ul>
+<h2>Usage</h2>
+<ol>
+<li>Open the app → <strong>"Enable keyboard"</strong> → turn on "Overlay Keyboard" in the list</li>
+<li><strong>"Select overlay keyboard"</strong> → pick it in the picker</li>
+<li>Tap any input field and the half-width keyboard appears</li>
+</ol>
+<h2>Style</h2>
+<p>Two themes. Light is the stock look (light gray keys, dark text); dark is a borderless deep gray.</p>
+<table><thead><tr><th></th><th>Light</th><th>Dark</th></tr></thead><tbody>
+<tr><td>Card</td><td>#F4F5F7</td><td>#16191E</td></tr>
+<tr><td>Keys</td><td>#E9EAEC</td><td>#2A2F37</td></tr>
+<tr><td>Text</td><td>Black</td><td>White</td></tr>
+</tbody></table>
+<h2>Lessons learned</h2>
+<h3>1) Backspace "sometimes" not working — the real cause was final consonants</h3>
+<p>Managing Hangul composition state internally meant that when <strong>the app committed the composition first</strong>, our state drifted out of sync and nothing happened.</p>
+<p>The deeper bug: <strong>single final consonants were left in place</strong>, so deleting <code>안</code> returned <code>안</code> again — looking like nothing happened.</p>
+<pre><code>안 → 안   (bug)
+안 → 아 → ㅇㅏ → deleted   (fixed)
+앉 → 안 → 아 → ㅇㅏ → deleted
+값 → 갑 → 가 → ㄱㅏ → deleted</code></pre>
+<p><strong>Fix</strong>: decide based on the <strong>actual text on screen</strong>, not internal state. Step down one level: final → vowel → initial → delete.</p>
+<h3>2) Long-press kept deleting after release</h3>
+<p>Repeat work was stored in the view's <code>setTag</code>, so rapid taps <strong>overwrote the previous task</strong> and cancellation failed.</p>
+<p><strong>Fix</strong>: a single global handler for repeats, always stopped on touch-up or when the keyboard hides.</p>
+<h3>3) 100% opacity still showed through</h3>
+<p>The slider only changed the card alpha, but <strong>the key colors themselves had alpha baked in (90%, 30%)</strong>, so even 100% was translucent.</p>
+<p><strong>Fix</strong>: made every color fully opaque (FF) so the slider is the only opacity control.</p>
+<h3>4) An overlay IME is a full-width window with a transparent background</h3>
+<p>The input method window must span the full width; we draw a <strong>transparent background with a half-width card on top</strong>. The window background must be transparent and <code>setDimAmount(0)</code> turns off the surrounding dim.</p>
+<h2>Notes</h2>
+<ul>
+<li>Built on Android's IME (InputMethodService), so it <strong>behaves like a system keyboard</strong></li>
+<li>Polestar 4 runs <code>targetSdk 22</code>, so no extra permission prompts are needed</li>
+<li>You can always switch back to the stock keyboard in settings</li>
+</ul><section class="comments"><h3>💬 댓글</h3>
+<script src="https://giscus.app/client.js"
+  data-repo="96jangbc/plab"
+  data-repo-id="R_kgDOVDlG9A"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOVDlG9M4DHfgF"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async></script>
+<noscript>댓글을 보려면 JavaScript를 켜 주세요.</noscript></section></main></div>
+<footer class="foot">© 2026 jangbc's AI life · Made with 96claw<span class="since"> · Since 2026-10-11 (<span id="sinceDays">1</span>일차)</span></footer>
+<script id="copyGuard">(function(){
+function ed(t){if(!t)return false;var n=t.nodeName?t.nodeName.toLowerCase():"";return n==="input"||n==="textarea"||t.isContentEditable===true;}
+function bl(e){if(ed(e.target))return;e.preventDefault();}
+document.addEventListener("copy",bl);document.addEventListener("cut",bl);
+document.addEventListener("contextmenu",bl);document.addEventListener("dragstart",bl);
+document.addEventListener("selectstart",bl);
+document.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&(e.key==="c"||e.key==="x"||e.key==="a")){if(ed(e.target))return;e.preventDefault();}});
+})();</script>
+<script>(function(){var s=new Date("2026-10-11T00:00:00+09:00");var d=Math.floor((new Date()-s)/86400000)+1;if(d<1)d=1;var e=document.getElementById("sinceDays");if(e)e.textContent=d;})();</script>
+</body></html>

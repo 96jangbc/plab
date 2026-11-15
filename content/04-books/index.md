@@ -10,9 +10,12 @@ nav: Books
 - **표지** 이미지 · **제목 · 저자 · 출판사** · **한 줄 요약** + **3~5줄 요약** · **읽은 시기 / 별점**
 
 ## 📖 읽는 중
-- **[돈의 심리학](psychology-of-money.html)** — 모건 하우절 (Morgan Housel) (2026년)
+
+- (현재 없음)
 
 ## ✅ 읽은 책
+- **[서늘한 대화](seoneulhan-daehwa.html)** — 정재승 · ★★★★☆ (2026.11)
+- **[돈의 심리학](psychology-of-money.html)** — 모건 하우절 (Morgan Housel) · ★★★★★ (2026.11)
 - **[청춘의 독서](cheongchun-ui-dokseo.html)** — 유시민 · ★★★★☆ (2025.06~07)
 - **[다시, 리더란 무엇인가](dasi-leader-ran-mueosinga.html)** — 모식 텡커 · ★★★★☆ (2025.05~06)
 - **[돈의 속성](don-ui-sokseong.html)** — 김승호 (SNOWFOX 창업자) · ★★★★★ (2026년)

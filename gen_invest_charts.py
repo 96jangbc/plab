@@ -30,9 +30,16 @@ def parse_file(path):
     if m:
         sp = float(m.group(1).replace(',', ''))
     ma200 = None
-    m = re.search(r'\|\s*200일선\s*\|[^|]*\(\s*[\d,]+\s*>\s*([\d,]+)', txt)
+    # 표 행: "| 200일선 | 이탈 (6910 < 7349) | 이탈 |" — 부등호 방향이 위/이탈에 따라
+    # 달라지므로 양방향 모두 받고, 괄호 안 두 번째 숫자를 200일선으로 본다.
+    m = re.search(r'\|\s*200일선\s*\|[^|]*\(\s*[\d,]+\s*[<>]\s*([\d,]+)', txt)
     if m:
         ma200 = float(m.group(1).replace(',', ''))
+    if ma200 is None:
+        # 원자료 줄: "- 200일선: 7,348.58 · 200주선: 5793.22"
+        m = re.search(r'200일선:\s*([\d,]+\.?\d*)', txt)
+        if m:
+            ma200 = float(m.group(1).replace(',', ''))
     sig = 0
     m = re.search(r'신호\s*(\d+)\s*/\s*5', txt)
     if m:
